@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 - Conteneurs et Images Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+            <div class="p-4 border-b border-blue-700">
+                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            <i class="fas fa-home mr-2"></i>
+                            Accueil
+                        </a>
+                    </li>
+                    <!-- Module 1 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
+                            <a href="module1.html" class="flex-grow">Module 1 - Introduction</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module1-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module1.html#1.1" class="block p-1 text-sm text-blue-100 hover:text-white">1.1 Bare Metal vs VM vs Container</a></li>
+                            <li><a href="module1.html#1.2" class="block p-1 text-sm text-blue-100 hover:text-white">1.2 Introduction à Docker</a></li>
+                            <li><a href="module1.html#1.3" class="block p-1 text-sm text-blue-100 hover:text-white">1.3 Pourquoi Docker</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 2 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
+                            <a href="module2.html" class="flex-grow">Module 2 - Installation</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module2-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module2.html#2.1" class="block p-1 text-sm text-blue-100 hover:text-white">2.1 Installation sur Windows</a></li>
+                            <li><a href="module2.html#2.2" class="block p-1 text-sm text-blue-100 hover:text-white">2.2 Installation sur MacOS</a></li>
+                            <li><a href="module2.html#2.3" class="block p-1 text-sm text-blue-100 hover:text-white">2.3 Installation sur Linux</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 3 (actif) -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
+                            <a href="module3.html" class="flex-grow">Module 3 - Conteneurs et Images</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module3-content" class="ml-4 space-y-1">
+                            <li><a href="#3.1" class="block p-1 text-sm text-blue-100 hover:text-white">3.1 Conteneur vs Image</a></li>
+                            <li><a href="#3.2" class="block p-1 text-sm text-blue-100 hover:text-white">3.2 Docker Hub</a></li>
+                            <li><a href="#3.3" class="block p-1 text-sm text-blue-100 hover:text-white">3.3 Gestion des Images</a></li>
+                            <li><a href="#3.4" class="block p-1 text-sm text-blue-100 hover:text-white">3.4 Gestion des Conteneurs</a></li>
+                            <li><a href="#3.5" class="block p-1 text-sm text-blue-100 hover:text-white">3.5 Exécuter des Commandes</a></li>
+                            <li><a href="#3.6" class="block p-1 text-sm text-blue-100 hover:text-white">3.6 Monitorer et Dépanner</a></li>
+                            <li><a href="#3.7" class="block p-1 text-sm text-blue-100 hover:text-white">3.7 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Autres modules... -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="ml-64 flex-1 p-8 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
+                    <h1 id="3.1" class="text-3xl font-bold text-gray-800 mb-6">3.1 Quelle est la différence entre un conteneur Docker et une image Docker ?</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour saisir pleinement les concepts présentés dans ce chapitre, il est recommandé d'avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Une compréhension basique de Docker et de son rôle dans le développement et le déploiement d'applications</li>
+                            <li>Une familiarité avec les principes de virtualisation et d'isolation dans l'environnement de développement</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Après avoir complété ce chapitre, vous devriez être capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Expliquer la différence fondamentale entre une image Docker et un conteneur Docker</li>
+                            <li>Comprendre le concept d'instance tel qu'il s'applique aux conteneurs Docker</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.1.1 Instance</h2>
+                            <p class="text-gray-600">
+                                Imaginez une chanson sur une plateforme de streaming comme Spotify. Chaque fois que vous jouez cette chanson, vous créez une "instance" de cette chanson. Même si la chanson originale est la même pour tout le monde, chaque écoute est une instance unique pour l'auditeur.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.1.2 Image Docker</h2>
+                            <p class="text-gray-600">
+                                Une image Docker est comparable à la chanson enregistrée sur Spotify. C'est une sorte de "blueprint" ou de recette qui contient toutes les instructions et les fichiers nécessaires pour créer un conteneur Docker. L'image est immuable, c'est-à-dire qu'elle ne change pas, mais elle peut être transférée (téléchargée ou partagée), modifiée (par création d'une nouvelle image), ou supprimée selon les besoins.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.1.3 Conteneur Docker</h2>
+                            <p class="text-gray-600">
+                                Un conteneur Docker, en revanche, est comme la chanson que vous jouez actuellement sur votre appareil. C'est une instance en temps réel de l'image Docker. Chaque conteneur est une application ou un environnement isolé et exécutable qui fonctionne à partir de l'image mais dans son propre espace indépendant.
+                            </p>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Image Docker :</strong> Agit comme un modèle ou une recette immuable qui contient toutes les instructions et fichiers nécessaires pour créer un conteneur Docker. Elle est comparable à une chanson sur une plateforme de streaming, existant en tant que blueprint prêt à être exécuté.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Conteneur Docker :</strong> Représente une instance exécutable de l'image Docker, fonctionnant dans un environnement isolé. Il est analogue à jouer la chanson sur un appareil, où chaque lecture crée une expérience unique bien que basée sur le même modèle original.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.2" class="text-3xl font-bold text-gray-800 mb-6">3.2 Les Registres Docker et Docker Hub</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Avant d'explorer ce chapitre, il est conseillé d'avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Une compréhension de base de Docker et de la conteneurisation</li>
+                            <li>Une familiarité avec les concepts de base de la gestion des images Docker</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, il est attendu de comprendre :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Le rôle et l'importance des registres Docker pour le stockage et la distribution d'images Docker</li>
+                            <li>Les fonctionnalités et les avantages de Docker Hub en tant que registre Docker public</li>
+                            <li>Comment utiliser les tags pour gérer différentes versions d'images Docker</li>
+                            <li>Les étapes pour lier un terminal au compte Docker Hub et les opérations de base pour pousser et tirer des images</li>
+                            <li>Les alternatives à Docker Hub et les options d'abonnement disponibles</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.1 Qu'est-ce qu'un Registre Docker ?</h2>
+                            <p class="text-gray-600">
+                                Un registre Docker est un service de stockage et de distribution d'images Docker. Il est similaire à une bibliothèque où les images Docker sont les livres, disponibles pour être empruntés (téléchargés) et utilisés.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.2 Pourquoi Utiliser un Registre Docker ?</h2>
+                            <p class="text-gray-600">
+                                Les registres Docker, comme Docker Hub, offrent un espace centralisé pour stocker et partager des images Docker. Cela facilite le partage d'applications et d'environnements entre différentes équipes ou individus.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.3 Docker Hub : Le Registre Docker le Plus Populaire</h2>
+                            <p class="text-gray-600 mb-4">
+                                Docker Hub est le registre public le plus connu et utilisé pour les images Docker. Il propose des images officielles maintenues par des équipes de développement ainsi que des images créées par la communauté.
+                            </p>
+
+                            <div class="space-y-4 ml-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">3.2.3.1 Création de Compte et Connexion</h3>
+                                    <p class="text-gray-600">
+                                        Pour utiliser Docker Hub, il est nécessaire de créer un compte. Une fois inscrit, vous pouvez télécharger (pull) des images publiques et télécharger (push) vos propres images.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">3.2.3.2 Niveaux d'Abonnement</h3>
+                                    <div class="bg-white shadow rounded-lg p-4">
+                                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                            <li><strong>Gratuit :</strong> Permet de télécharger des images publiques et de télécharger un nombre limité d'images privées</li>
+                                            <li><strong>Payant :</strong> Offre des options avancées, notamment un nombre plus élevé d'images privées et d'autres fonctionnalités</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.4 Tags dans Docker Hub</h2>
+                            <p class="text-gray-600 mb-4">
+                                Les tags dans Docker sont utilisés pour spécifier des versions ou des configurations différentes d'une même image.
+                            </p>
+
+                            <div class="space-y-4 ml-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">3.2.4.1 Comment Taguer une Image ?</h3>
+                                    <p class="text-gray-600 mb-2">
+                                        Pour taguer une image, utilisez la commande <code>docker tag</code>. Par exemple :
+                                    </p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker tag mon_apache mon_utilisateur/mon_apache:version1
+                                    </div>
+                                    <p class="text-gray-600 mt-2">
+                                        Cela crée un tag <code>version1</code> pour l'image <code>mon_apache</code>.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">3.2.4.2 Gestion des Tags sur Docker Hub</h3>
+                                    <p class="text-gray-600">
+                                        Sur Docker Hub, les tags aident à organiser et à identifier différentes versions d'une image. Vous pouvez avoir plusieurs tags pour une même image, facilitant ainsi le suivi des versions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.5 Lier le Terminal au Compte Docker Hub</h2>
+                            <p class="text-gray-600">
+                                Pour lier votre terminal à votre compte Docker Hub, vous devez vous connecter via la commande <code>docker login</code>. Cela permet de pousser et de tirer des images depuis votre compte Docker Hub.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.2.6 Exemples de Registres Docker Connus</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>
+                                        <a href="https://hub.docker.com" class="text-blue-600 hover:underline" target="_blank">Docker Hub</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://cloud.google.com/container-registry" class="text-blue-600 hover:underline" target="_blank">Google Container Registry</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://aws.amazon.com/ecr/" class="text-blue-600 hover:underline" target="_blank">Amazon Elastic Container Registry</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Registres Docker :</strong> Services de stockage et de distribution pour les images Docker, agissant comme des bibliothèques centralisées qui facilitent le partage et l'utilisation des images entre équipes ou individus.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Docker Hub :</strong> Le registre Docker public le plus utilisé, offrant des images officielles et communautaires. Il nécessite la création d'un compte pour pousser (push) et tirer (pull) des images.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Tags :</strong> Utilisés pour spécifier des versions ou configurations d'images Docker, permettant une gestion efficace des différentes versions d'une même image.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Lier le Terminal à Docker Hub :</strong> Nécessite l'utilisation de <code>docker login</code> pour authentifier et permettre le transfert d'images vers et depuis Docker Hub.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Alternatives à Docker Hub :</strong> Incluent Google Container Registry, Amazon Elastic Container Registry, et d'autres, offrant des services similaires avec des intégrations spécifiques à leurs écosystèmes cloud.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.3" class="text-3xl font-bold text-gray-800 mb-6">3.3 Gestion des Images Docker</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour suivre cette section efficacement, assurez-vous d'avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Docker installé et fonctionnel sur votre système</li>
+                            <li>Une connexion Internet pour télécharger les images</li>
+                            <li>Les notions de base sur les images Docker et Docker Hub</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Rechercher et télécharger des images depuis Docker Hub</li>
+                            <li>Gérer le cycle de vie des images Docker</li>
+                            <li>Comprendre et utiliser les commandes essentielles de gestion d'images</li>
+                            <li>Optimiser l'utilisation de l'espace disque avec les images</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.3.1 Rechercher des Images</h2>
+                            <p class="text-gray-600 mb-4">
+                                La recherche d'images peut se faire soit via l'interface web de Docker Hub, soit en ligne de commande.
+                            </p>
+                            <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm mb-4">
+                                docker search nginx
+                            </div>
+                            <p class="text-gray-600">
+                                Cette commande affiche une liste d'images correspondant au terme "nginx", avec des informations comme le nombre d'étoiles et le statut officiel.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.3.2 Télécharger des Images</h2>
+                            <p class="text-gray-600 mb-4">
+                                Pour télécharger une image, utilisez la commande <code>docker pull</code>.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Télécharger la dernière version :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker pull nginx:latest
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Télécharger une version spécifique :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker pull nginx:1.24
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.3.3 Lister les Images</h2>
+                            <p class="text-gray-600 mb-4">
+                                Pour voir les images disponibles localement :
+                            </p>
+                            <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm mb-4">
+                                docker images
+                            </div>
+                            <p class="text-gray-600">
+                                Cette commande affiche les informations suivantes pour chaque image :
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 ml-4 mt-2">
+                                <li>REPOSITORY : nom de l'image</li>
+                                <li>TAG : version de l'image</li>
+                                <li>IMAGE ID : identifiant unique de l'image</li>
+                                <li>CREATED : date de création</li>
+                                <li>SIZE : taille de l'image</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.3.4 Supprimer des Images</h2>
+                            <p class="text-gray-600 mb-4">
+                                Pour libérer de l'espace, vous pouvez supprimer les images inutilisées.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Supprimer une image spécifique :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker rmi nginx:latest
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Supprimer toutes les images inutilisées :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker image prune
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.3.5 Inspecter une Image</h2>
+                            <p class="text-gray-600 mb-4">
+                                Pour obtenir des informations détaillées sur une image :
+                            </p>
+                            <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm mb-4">
+                                docker image inspect nginx:latest
+                            </div>
+                            <p class="text-gray-600">
+                                Cette commande affiche des informations détaillées comme les couches de l'image, les variables d'environnement, l'architecture, etc.
+                            </p>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Recherche d'Images :</strong> Utilisez <code>docker search</code> ou l'interface web de Docker Hub pour trouver les images dont vous avez besoin.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Téléchargement :</strong> La commande <code>docker pull</code> permet de télécharger des images depuis un registre.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Gestion Locale :</strong> Utilisez <code>docker images</code> pour lister et <code>docker rmi</code> pour supprimer les images.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Inspection :</strong> La commande <code>docker image inspect</code> fournit des informations détaillées sur une image.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Maintenance :</strong> Utilisez régulièrement <code>docker image prune</code> pour nettoyer les images inutilisées.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.4" class="text-3xl font-bold text-gray-800 mb-6">3.4 Gestion des Conteneurs Docker</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour cette section, vous devez avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Une compréhension des images Docker</li>
+                            <li>Docker installé et configuré sur votre système</li>
+                            <li>Au moins une image Docker téléchargée localement</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Créer et démarrer des conteneurs Docker</li>
+                            <li>Gérer le cycle de vie des conteneurs</li>
+                            <li>Comprendre et utiliser les options de configuration des conteneurs</li>
+                            <li>Surveiller l'état et les ressources des conteneurs</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.4.1 Créer et Démarrer des Conteneurs</h2>
+                            <p class="text-gray-600 mb-4">
+                                La commande principale pour créer et démarrer un conteneur est <code>docker run</code>.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Démarrer un conteneur simple :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker run nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Démarrer en mode détaché (background) :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker run -d nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Démarrer avec un nom personnalisé et un port mappé :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker run -d --name mon_nginx -p 8080:80 nginx
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.4.2 Options de Configuration Courantes</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><code>-d</code> : Mode détaché (background)</li>
+                                    <li><code>-p</code> : Mapping de ports (hôte:conteneur)</li>
+                                    <li><code>-v</code> : Montage de volumes</li>
+                                    <li><code>-e</code> : Variables d'environnement</li>
+                                    <li><code>--name</code> : Nom personnalisé</li>
+                                    <li><code>--network</code> : Réseau Docker</li>
+                                    <li><code>--restart</code> : Politique de redémarrage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.4.3 Gérer les Conteneurs en Cours d'Exécution</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Lister les conteneurs actifs :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker ps
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Lister tous les conteneurs (y compris arrêtés) :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker ps -a
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Arrêter un conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker stop mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Redémarrer un conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker restart mon_nginx
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.4.4 Supprimer des Conteneurs</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Supprimer un conteneur arrêté :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker rm mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Forcer la suppression d'un conteneur en cours d'exécution :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker rm -f mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Nettoyer tous les conteneurs arrêtés :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker container prune
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.4.5 Inspecter et Surveiller les Conteneurs</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir les logs d'un conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker logs mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Suivre les logs en temps réel :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker logs -f mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir les statistiques d'utilisation des ressources :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker stats mon_nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Inspecter la configuration d'un conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker inspect mon_nginx
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Création et Démarrage :</strong> Utilisez <code>docker run</code> avec différentes options pour créer et démarrer des conteneurs selon vos besoins.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Gestion du Cycle de Vie :</strong> Les commandes <code>docker start</code>, <code>docker stop</code>, et <code>docker restart</code> permettent de contrôler l'état des conteneurs.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Surveillance :</strong> Utilisez <code>docker logs</code> et <code>docker stats</code> pour surveiller l'activité et les performances des conteneurs.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Nettoyage :</strong> Les commandes <code>docker rm</code> et <code>docker container prune</code> permettent de gérer efficacement l'espace disque.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.5" class="text-3xl font-bold text-gray-800 mb-6">3.5 Exécuter des Commandes dans les Conteneurs</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour cette section, assurez-vous d'avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Des conteneurs Docker en cours d'exécution</li>
+                            <li>Une compréhension de base des commandes Linux/Unix</li>
+                            <li>Les connaissances acquises dans les sections précédentes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Exécuter des commandes dans un conteneur en cours d'exécution</li>
+                            <li>Comprendre la différence entre les commandes exec et run</li>
+                            <li>Utiliser le mode interactif pour interagir avec les conteneurs</li>
+                            <li>Copier des fichiers entre l'hôte et les conteneurs</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.5.1 La Commande docker exec</h2>
+                            <p class="text-gray-600 mb-4">
+                                La commande <code>docker exec</code> permet d'exécuter une commande dans un conteneur en cours d'exécution.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Exécuter une commande simple :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker exec mon_nginx ls /usr/share/nginx/html
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Ouvrir un shell interactif :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker exec -it mon_nginx /bin/bash
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.5.2 Options Importantes de docker exec</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><code>-i</code> : Mode interactif (garde STDIN ouvert)</li>
+                                    <li><code>-t</code> : Alloue un pseudo-TTY</li>
+                                    <li><code>-w</code> : Répertoire de travail dans le conteneur</li>
+                                    <li><code>-e</code> : Variables d'environnement</li>
+                                    <li><code>-u</code> : Utilisateur à utiliser</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.5.3 Copier des Fichiers</h2>
+                            <p class="text-gray-600 mb-4">
+                                La commande <code>docker cp</code> permet de copier des fichiers entre l'hôte et les conteneurs.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Copier de l'hôte vers le conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker cp ./mon_fichier.html mon_nginx:/usr/share/nginx/html/
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Copier du conteneur vers l'hôte :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker cp mon_nginx:/var/log/nginx/access.log ./logs/
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.5.4 Différence entre exec et run</h2>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                                <p class="text-yellow-700">
+                                    <strong>docker exec</strong> exécute une commande dans un conteneur existant et en cours d'exécution.
+                                </p>
+                                <p class="text-yellow-700 mt-2">
+                                    <strong>docker run</strong> crée et démarre un nouveau conteneur à partir d'une image.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.5.5 Bonnes Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utilisez toujours <code>-it</code> pour les sessions interactives</li>
+                                        <li>Préférez les variables d'environnement aux modifications directes des fichiers</li>
+                                        <li>Évitez d'installer des packages permanents via exec</li>
+                                        <li>Documentez les commandes exec fréquemment utilisées</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">docker exec :</strong> Permet d'exécuter des commandes dans des conteneurs en cours d'exécution, idéal pour le débogage et la maintenance.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Mode Interactif :</strong> L'option <code>-it</code> permet d'obtenir un shell interactif dans le conteneur.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Transfert de Fichiers :</strong> <code>docker cp</code> facilite le transfert de fichiers entre l'hôte et les conteneurs.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Bonnes Pratiques :</strong> Privilégiez les solutions non intrusives et documentez vos interventions dans les conteneurs.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.6" class="text-3xl font-bold text-gray-800 mb-6">3.6 Monitorer et Dépanner les Conteneurs Docker</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour cette section, vous devez avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Des conteneurs Docker en cours d'exécution</li>
+                            <li>Une compréhension des commandes de base Docker</li>
+                            <li>Des notions de base en monitoring système</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Surveiller les performances des conteneurs</li>
+                            <li>Diagnostiquer les problèmes courants</li>
+                            <li>Utiliser les outils de débogage Docker</li>
+                            <li>Mettre en place des bonnes pratiques de monitoring</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.6.1 Surveiller les Performances</h2>
+                            <p class="text-gray-600 mb-4">
+                                Docker fournit plusieurs commandes pour surveiller les performances des conteneurs.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir les statistiques en temps réel :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker stats
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir les processus en cours d'exécution :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker top mon_conteneur
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.6.2 Analyser les Logs</h2>
+                            <p class="text-gray-600 mb-4">
+                                Les logs sont essentiels pour comprendre le comportement des conteneurs.
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir les derniers logs :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker logs --tail 50 mon_conteneur
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Suivre les logs en temps réel avec timestamp :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker logs -f --timestamps mon_conteneur
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.6.3 Problèmes Courants et Solutions</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Conteneur qui ne démarre pas</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Vérifier les logs : <code>docker logs mon_conteneur</code></li>
+                                        <li>Inspecter la configuration : <code>docker inspect mon_conteneur</code></li>
+                                        <li>Vérifier les ports utilisés : <code>docker port mon_conteneur</code></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Problèmes de ressources</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Surveiller l'utilisation CPU/mémoire : <code>docker stats</code></li>
+                                        <li>Vérifier les limites de ressources : <code>docker inspect</code></li>
+                                        <li>Nettoyer les ressources inutilisées : <code>docker system prune</code></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.6.4 Outils de Débogage Avancés</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Inspecter les événements Docker :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker events --filter 'container=mon_conteneur'
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Voir l'utilisation des ressources système :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker system df
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.6.5 Bonnes Pratiques de Monitoring</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>Mettre en place des limites de ressources pour les conteneurs</li>
+                                    <li>Configurer la rotation des logs</li>
+                                    <li>Utiliser des outils de monitoring dédiés (ex: Prometheus, Grafana)</li>
+                                    <li>Mettre en place des alertes sur les métriques critiques</li>
+                                    <li>Documenter les procédures de dépannage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Monitoring :</strong> Utilisez <code>docker stats</code> et <code>docker top</code> pour surveiller les performances en temps réel.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Logs :</strong> Les commandes <code>docker logs</code> sont essentielles pour le diagnostic des problèmes.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Dépannage :</strong> Une approche systématique utilisant les outils Docker permet de résoudre la plupart des problèmes.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Bonnes Pratiques :</strong> La mise en place de limites de ressources et d'outils de monitoring est cruciale pour la production.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="3.7" class="text-3xl font-bold text-gray-800 mb-6">3.7 Travail Pratique : Déployer une Application Web</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs du TP</h2>
+                        <p class="text-green-700 mb-2">Dans ce travail pratique, vous allez :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Créer et configurer un conteneur nginx</li>
+                            <li>Personnaliser le contenu web</li>
+                            <li>Gérer les logs et le monitoring</li>
+                            <li>Mettre en pratique les commandes apprises</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.7.1 Préparation</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Créer un répertoire de travail :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        mkdir mon_site_web
+                                        cd mon_site_web
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Créer un fichier HTML simple (index.html) :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm overflow-x-auto">
+                                        echo '<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site Docker</title>
+</head>
+<body>
+    <h1>Bienvenue sur mon site hébergé avec Docker !</h1>
+    <p>Cette page est servie depuis un conteneur nginx.</p>
+</body>
+</html>' > index.html
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.7.2 Déploiement du Conteneur</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Lancer le conteneur nginx avec le volume monté :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker run -d --name mon_site -p 8080:80 -v ${PWD}:/usr/share/nginx/html nginx
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600">
+                                        Cette commande :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600 ml-4">
+                                        <li>Lance nginx en arrière-plan (-d)</li>
+                                        <li>Nomme le conteneur "mon_site"</li>
+                                        <li>Mappe le port 8080 de l'hôte au port 80 du conteneur</li>
+                                        <li>Monte le répertoire courant dans le conteneur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.7.3 Vérification et Tests</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Vérifier que le conteneur est en cours d'exécution :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker ps
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Vérifier les logs du conteneur :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker logs mon_site
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-2">Accéder au site :</p>
+                                    <div class="bg-blue-50 p-3 rounded text-blue-800">
+                                        Ouvrez votre navigateur et accédez à <code>http://localhost:8080</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.7.4 Exercices Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exercice 1 : Personnalisation</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Modifiez le fichier index.html pour ajouter du contenu personnalisé</li>
+                                        <li>Vérifiez que les changements sont visibles dans le navigateur</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exercice 2 : Monitoring</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Surveillez les logs d'accès en temps réel</li>
+                                        <li>Vérifiez l'utilisation des ressources du conteneur</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exercice 3 : Maintenance</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Arrêtez et redémarrez le conteneur</li>
+                                        <li>Vérifiez que le site reste accessible</li>
+                                        <li>Inspectez la configuration du conteneur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">3.7.5 Nettoyage</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600 mb-2">Une fois terminé, nettoyez votre environnement :</p>
+                                    <div class="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                                        docker stop mon_site
+                                        docker rm mon_site
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés du TP</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Configuration :</strong> Création d'un environnement web simple avec nginx et Docker.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Volumes :</strong> Utilisation des volumes pour persister et modifier le contenu web.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Monitoring :</strong> Mise en pratique des commandes de surveillance et de logs.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Maintenance :</strong> Application des commandes de gestion du cycle de vie des conteneurs.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/nav.js"></script>
+</body>
+</html> 
