@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5 - Stockage dans Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+            <div class="p-4 border-b border-blue-700">
+                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            <i class="fas fa-home mr-2"></i>
+                            Accueil
+                        </a>
+                    </li>
+                    <!-- Module 1 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
+                            <a href="module1.html" class="flex-grow">Module 1 - Introduction</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module1-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module1.html#1.1" class="block p-1 text-sm text-blue-100 hover:text-white">1.1 Bare Metal vs VM vs Container</a></li>
+                            <li><a href="module1.html#1.2" class="block p-1 text-sm text-blue-100 hover:text-white">1.2 Introduction à Docker</a></li>
+                            <li><a href="module1.html#1.3" class="block p-1 text-sm text-blue-100 hover:text-white">1.3 Pourquoi Docker</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 2 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
+                            <a href="module2.html" class="flex-grow">Module 2 - Installation</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module2-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module2.html#2.1" class="block p-1 text-sm text-blue-100 hover:text-white">2.1 Installation sur Windows</a></li>
+                            <li><a href="module2.html#2.2" class="block p-1 text-sm text-blue-100 hover:text-white">2.2 Installation sur MacOS</a></li>
+                            <li><a href="module2.html#2.3" class="block p-1 text-sm text-blue-100 hover:text-white">2.3 Installation sur Linux</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 3 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
+                            <a href="module3.html" class="flex-grow">Module 3 - Conteneurs et Images</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module3-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module3.html#3.1" class="block p-1 text-sm text-blue-100 hover:text-white">3.1 Conteneur vs Image</a></li>
+                            <li><a href="module3.html#3.2" class="block p-1 text-sm text-blue-100 hover:text-white">3.2 Docker Hub</a></li>
+                            <li><a href="module3.html#3.3" class="block p-1 text-sm text-blue-100 hover:text-white">3.3 Gestion des Images</a></li>
+                            <li><a href="module3.html#3.4" class="block p-1 text-sm text-blue-100 hover:text-white">3.4 Gestion des Conteneurs</a></li>
+                            <li><a href="module3.html#3.5" class="block p-1 text-sm text-blue-100 hover:text-white">3.5 Exécuter des Commandes</a></li>
+                            <li><a href="module3.html#3.6" class="block p-1 text-sm text-blue-100 hover:text-white">3.6 Monitorer et Dépanner</a></li>
+                            <li><a href="module3.html#3.7" class="block p-1 text-sm text-blue-100 hover:text-white">3.7 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 4 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
+                            <a href="module4.html" class="flex-grow">Module 4 - Gestion Avancée</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module4-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module4.html#4.1" class="block p-1 text-sm text-blue-100 hover:text-white">4.1 Prérequis Images Personnalisées</a></li>
+                            <li><a href="module4.html#4.2" class="block p-1 text-sm text-blue-100 hover:text-white">4.2 Pourquoi des Images Personnalisées</a></li>
+                            <li><a href="module4.html#4.3" class="block p-1 text-sm text-blue-100 hover:text-white">4.3 Introduction au Dockerfile</a></li>
+                            <li><a href="module4.html#4.4" class="block p-1 text-sm text-blue-100 hover:text-white">4.4 Construction d'Images</a></li>
+                            <li><a href="module4.html#4.5" class="block p-1 text-sm text-blue-100 hover:text-white">4.5 Optimisation des Images</a></li>
+                            <li><a href="module4.html#4.6" class="block p-1 text-sm text-blue-100 hover:text-white">4.6 Gestion des Tags</a></li>
+                            <li><a href="module4.html#4.7" class="block p-1 text-sm text-blue-100 hover:text-white">4.7 Distribution d'Images</a></li>
+                            <li><a href="module4.html#4.8" class="block p-1 text-sm text-blue-100 hover:text-white">4.8 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 5 (actif) -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module5-content">
+                            <a href="module5.html" class="flex-grow">Module 5 - Stockage</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module5-content" class="ml-4 space-y-1">
+                            <li><a href="#5.1" class="block p-1 text-sm text-blue-100 hover:text-white">5.1 Introduction au Stockage</a></li>
+                            <li><a href="#5.2" class="block p-1 text-sm text-blue-100 hover:text-white">5.2 Les Volumes Docker</a></li>
+                            <li><a href="#5.3" class="block p-1 text-sm text-blue-100 hover:text-white">5.3 Les Bind Mounts</a></li>
+                            <li><a href="#5.4" class="block p-1 text-sm text-blue-100 hover:text-white">5.4 Les Tmpfs Mounts</a></li>
+                            <li><a href="#5.5" class="block p-1 text-sm text-blue-100 hover:text-white">5.5 Stockage et Sécurité</a></li>
+                            <li><a href="#5.6" class="block p-1 text-sm text-blue-100 hover:text-white">5.6 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 6 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
+                            <a href="module6.html" class="flex-grow">Module 6 - Réseautage</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module6-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module6.html#6.1" class="block p-1 text-sm text-blue-100 hover:text-white">6.1 Concepts de Base</a></li>
+                            <li><a href="module6.html#6.2" class="block p-1 text-sm text-blue-100 hover:text-white">6.2 Création et Gestion</a></li>
+                            <li><a href="module6.html#6.3" class="block p-1 text-sm text-blue-100 hover:text-white">6.3 Connexion des Conteneurs</a></li>
+                            <li><a href="module6.html#6.4" class="block p-1 text-sm text-blue-100 hover:text-white">6.4 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 7 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
+                            <a href="module7.html" class="flex-grow">Module 7 - Docker Compose</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module7-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module7.html#7.1" class="block p-1 text-sm text-blue-100 hover:text-white">7.1 Introduction à Docker Compose</a></li>
+                            <li><a href="module7.html#7.2" class="block p-1 text-sm text-blue-100 hover:text-white">7.2 Démarrer et Arrêter des Services</a></li>
+                            <li><a href="module7.html#7.3" class="block p-1 text-sm text-blue-100 hover:text-white">7.3 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Cheatsheet -->
+                    <li>
+                        <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Cheatsheet Docker
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="ml-64 flex-1 p-8 overflow-y-auto">
+            <div class="mx-auto">
+                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
+                    <h1 id="5.1" class="text-3xl font-bold text-gray-800 mb-6">5.1 Introduction au Stockage Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Les concepts fondamentaux du stockage Docker</li>
+                            <li>Les différents types de stockage disponibles</li>
+                            <li>Comment choisir le bon type de stockage</li>
+                            <li>Les bonnes pratiques de gestion du stockage</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.1.1 Concepts de Base du Stockage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Système de Fichiers en Couches</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Docker utilise un système de fichiers en couches qui permet :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>La réutilisation efficace des couches entre conteneurs</li>
+                                        <li>L'optimisation de l'espace disque</li>
+                                        <li>Des démarrages rapides des conteneurs</li>
+                                        <li>La gestion des modifications de manière isolée</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Types de Stockage</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Volumes Docker (persistant, géré par Docker)</li>
+                                        <li>Bind Mounts (lien direct avec le système hôte)</li>
+                                        <li>Tmpfs Mounts (stockage temporaire en mémoire)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.1.2 Persistance des Données</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Importance de la Persistance</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Conservation des données après l'arrêt du conteneur</li>
+                                        <li>Partage de données entre conteneurs</li>
+                                        <li>Sauvegarde et restauration facilitées</li>
+                                        <li>Migration des données entre environnements</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Cas d'Usage</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Bases de données</li>
+                                        <li>Fichiers de configuration</li>
+                                        <li>Logs d'application</li>
+                                        <li>Contenu statique</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.1.3 Choix du Type de Stockage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Critères de Choix</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Durée de vie des données</li>
+                                        <li>Performance requise</li>
+                                        <li>Portabilité des données</li>
+                                        <li>Besoins en sécurité</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Tableau Comparatif</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-gray-100">
+                                                <tr>
+                                                    <th class="px-4 py-2">Type</th>
+                                                    <th class="px-4 py-2">Persistance</th>
+                                                    <th class="px-4 py-2">Performance</th>
+                                                    <th class="px-4 py-2">Portabilité</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Volumes</td>
+                                                    <td class="border px-4 py-2">Oui</td>
+                                                    <td class="border px-4 py-2">Excellente</td>
+                                                    <td class="border px-4 py-2">Bonne</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Bind Mounts</td>
+                                                    <td class="border px-4 py-2">Oui</td>
+                                                    <td class="border px-4 py-2">Bonne</td>
+                                                    <td class="border px-4 py-2">Limitée</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Tmpfs</td>
+                                                    <td class="border px-4 py-2">Non</td>
+                                                    <td class="border px-4 py-2">Excellente</td>
+                                                    <td class="border px-4 py-2">Aucune</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Système de Fichiers :</strong> Docker utilise un système en couches pour optimiser l'utilisation du stockage.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Types de Stockage :</strong> Volumes, Bind Mounts et Tmpfs offrent différentes solutions selon les besoins.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Persistance :</strong> Essentielle pour certaines applications, avec différents niveaux selon le type de stockage.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Choix :</strong> La sélection du type de stockage dépend des besoins spécifiques de l'application.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="5.2" class="text-3xl font-bold text-gray-800 mb-6">5.2 Les Volumes Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Comprendre le concept des volumes Docker</li>
+                            <li>Créer et gérer des volumes</li>
+                            <li>Partager des données entre conteneurs</li>
+                            <li>Sauvegarder et restaurer des volumes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.2.1 Qu'est-ce qu'un Volume Docker ?</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Définition</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Un volume Docker est un mécanisme de stockage persistant géré par Docker qui permet de :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Stocker des données en dehors du système de fichiers du conteneur</li>
+                                        <li>Persister les données même après la suppression du conteneur</li>
+                                        <li>Partager des données entre plusieurs conteneurs</li>
+                                        <li>Gérer le stockage de manière indépendante du cycle de vie des conteneurs</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Avantages des Volumes</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Meilleure performance que les bind mounts</li>
+                                        <li>Fonctionne sur tous les systèmes d'exploitation</li>
+                                        <li>Peut être géré via l'API Docker</li>
+                                        <li>Plus sécurisé pour le partage entre conteneurs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.2.2 Gestion des Volumes</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Commandes de Base</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Créer un volume
+docker volume create mon_volume
+
+# Lister les volumes
+docker volume ls
+
+# Inspecter un volume
+docker volume inspect mon_volume
+
+# Supprimer un volume
+docker volume rm mon_volume
+
+# Nettoyer les volumes inutilisés
+docker volume prune</pre>
+                                    </div>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Utilisation avec les Conteneurs</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Monter un volume lors du lancement d'un conteneur
+docker run -v mon_volume:/data nginx
+
+# Créer et monter un volume anonyme
+docker run -v /data nginx
+
+# Monter un volume en lecture seule
+docker run -v mon_volume:/data:ro nginx</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.2.3 Partage de Données</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Entre Conteneurs</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Créer un conteneur avec un volume
+docker run -d --name conteneur1 -v mon_volume:/data nginx
+
+# Utiliser le même volume dans un autre conteneur
+docker run -d --name conteneur2 -v mon_volume:/data nginx
+
+# Utiliser les volumes d'un autre conteneur
+docker run --volumes-from conteneur1 nginx</pre>
+                                    </div>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Bonnes Pratiques</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Nommer explicitement les volumes pour une meilleure traçabilité</li>
+                                        <li>Utiliser des étiquettes pour organiser les volumes</li>
+                                        <li>Nettoyer régulièrement les volumes inutilisés</li>
+                                        <li>Documenter l'utilisation des volumes dans le projet</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.2.4 Sauvegarde et Restauration</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Sauvegarder un Volume</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Créer une sauvegarde
+docker run --rm -v mon_volume:/source -v $(pwd):/backup alpine tar -czf /backup/mon_volume.tar.gz -C /source .</pre>
+                                    </div>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Restaurer un Volume</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Restaurer depuis une sauvegarde
+docker run --rm -v mon_volume:/target -v $(pwd):/backup alpine sh -c "cd /target && tar -xzf /backup/mon_volume.tar.gz"</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Volumes :</strong> Solution de stockage persistant native de Docker, offrant les meilleures performances.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Gestion :</strong> Commandes simples pour créer, lister, inspecter et supprimer les volumes.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Partage :</strong> Facilité de partage des données entre conteneurs avec une bonne isolation.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sauvegarde :</strong> Possibilité de sauvegarder et restaurer les données des volumes.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="5.3" class="text-3xl font-bold text-gray-800 mb-6">5.3 Les Bind Mounts</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Comprendre le concept des bind mounts</li>
+                            <li>Utiliser les bind mounts avec Docker</li>
+                            <li>Gérer les permissions et la sécurité</li>
+                            <li>Appliquer les bonnes pratiques</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.3.1 Introduction aux Bind Mounts</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Définition</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Un bind mount est un mécanisme qui permet de monter directement un fichier ou un répertoire du système hôte dans un conteneur. Contrairement aux volumes Docker, les bind mounts :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Dépendent de la structure de fichiers de l'hôte</li>
+                                        <li>Peuvent être modifiés directement depuis l'hôte</li>
+                                        <li>Offrent un accès direct aux fichiers du système</li>
+                                        <li>Sont parfaits pour le développement</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Cas d'Usage</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Développement d'applications</li>
+                                        <li>Configuration des conteneurs</li>
+                                        <li>Partage de fichiers avec l'hôte</li>
+                                        <li>Tests et débogage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.3.2 Utilisation des Bind Mounts</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Syntaxe de Base</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Syntaxe longue (recommandée)
+docker run --mount type=bind,source=/chemin/hote,target=/chemin/conteneur nginx
+
+# Syntaxe courte (ancienne)
+docker run -v /chemin/hote:/chemin/conteneur nginx
+
+# Monter en lecture seule
+docker run --mount type=bind,source=/chemin/hote,target=/chemin/conteneur,readonly nginx</pre>
+                                    </div>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemples Pratiques</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Monter un répertoire de développement
+docker run -d --name dev-env \
+  --mount type=bind,source=$(pwd),target=/app \
+  node:alpine
+
+# Monter un fichier de configuration
+docker run -d --name web-server \
+  --mount type=bind,source=/etc/nginx/nginx.conf,target=/etc/nginx/nginx.conf,readonly \
+  nginx</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.3.3 Gestion des Permissions</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Permissions et Propriété</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Les permissions sont héritées du système hôte</li>
+                                        <li>L'utilisateur dans le conteneur doit avoir les droits appropriés</li>
+                                        <li>Attention aux différences de UID/GID entre l'hôte et le conteneur</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple avec Permissions</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Définir l'utilisateur pour le conteneur
+docker run -d --name app \
+  --mount type=bind,source=$(pwd),target=/app \
+  --user "$(id -u):$(id -g)" \
+  node:alpine</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.3.4 Bonnes Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Recommandations</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser la syntaxe --mount pour plus de clarté</li>
+                                        <li>Toujours spécifier les chemins absolus</li>
+                                        <li>Préférer le mode lecture seule quand possible</li>
+                                        <li>Gérer correctement les permissions</li>
+                                        <li>Documenter l'utilisation des bind mounts</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Sécurité</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Limiter l'accès aux fichiers sensibles</li>
+                                        <li>Éviter les bind mounts en production</li>
+                                        <li>Vérifier les permissions avant le montage</li>
+                                        <li>Utiliser SELinux ou AppArmor si disponible</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Bind Mounts :</strong> Permettent de monter directement des fichiers de l'hôte dans un conteneur.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Utilisation :</strong> Parfaits pour le développement et la configuration des conteneurs.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Permissions :</strong> Nécessitent une attention particulière à la gestion des droits d'accès.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> À utiliser avec précaution, particulièrement en environnement de production.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="5.4" class="text-3xl font-bold text-gray-800 mb-6">5.4 Les Tmpfs Mounts</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Comprendre le concept des tmpfs mounts</li>
+                            <li>Utiliser le stockage temporaire en mémoire</li>
+                            <li>Gérer les données sensibles</li>
+                            <li>Optimiser les performances avec tmpfs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.4.1 Introduction aux Tmpfs Mounts</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Définition</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Les tmpfs mounts sont des montages temporaires stockés en mémoire vive (RAM) qui permettent de :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Stocker des données temporaires à haute vitesse</li>
+                                        <li>Gérer des informations sensibles de manière sécurisée</li>
+                                        <li>Améliorer les performances pour les données fréquemment accédées</li>
+                                        <li>Effacer automatiquement les données à l'arrêt du conteneur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.4.2 Utilisation des Tmpfs Mounts</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Syntaxe de Base</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Créer un montage tmpfs
+docker run -d --name app --tmpfs /app/temp nginx
+
+# Spécifier la taille et les permissions
+docker run -d --name app --tmpfs /app/temp:rw,size=100M,mode=700 nginx
+
+# Utiliser la syntaxe mount
+docker run -d --name app \
+  --mount type=tmpfs,destination=/app/temp,tmpfs-size=100M,tmpfs-mode=700 \
+  nginx</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.4.3 Cas d'Usage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Applications Courantes</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Stockage de sessions temporaires</li>
+                                        <li>Cache d'application</li>
+                                        <li>Fichiers de travail temporaires</li>
+                                        <li>Données sensibles (clés, tokens)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple Pratique</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Application web avec cache en mémoire
+docker run -d --name webapp \
+  --tmpfs /app/cache:rw,size=100M \
+  --tmpfs /app/sessions:rw,size=50M,mode=700 \
+  mon-app:latest</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.4.4 Considérations</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Avantages</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Performances élevées (stockage en RAM)</li>
+                                        <li>Sécurité accrue pour les données sensibles</li>
+                                        <li>Nettoyage automatique à l'arrêt du conteneur</li>
+                                        <li>Pas d'impact sur le système de fichiers</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Limitations</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Données non persistantes</li>
+                                        <li>Utilisation de la mémoire système</li>
+                                        <li>Taille limitée par la RAM disponible</li>
+                                        <li>Non partageable entre conteneurs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Tmpfs :</strong> Solution de stockage temporaire en mémoire pour les données volatiles.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Performance :</strong> Excellentes performances grâce au stockage en RAM.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> Idéal pour les données sensibles nécessitant un effacement automatique.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Usage :</strong> Parfait pour le cache et les fichiers temporaires.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="5.5" class="text-3xl font-bold text-gray-800 mb-6">5.5 Bonnes Pratiques de Stockage Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Choisir le bon type de stockage selon vos besoins</li>
+                            <li>Optimiser la gestion du stockage</li>
+                            <li>Sécuriser vos données</li>
+                            <li>Maintenir une architecture de stockage efficace</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.5.1 Choix du Type de Stockage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Guide de Sélection</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white">
+                                            <thead>
+                                                <tr>
+                                                    <th class="border px-4 py-2">Type</th>
+                                                    <th class="border px-4 py-2">Utilisation Recommandée</th>
+                                                    <th class="border px-4 py-2">Environnement</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Volumes</td>
+                                                    <td class="border px-4 py-2">Données persistantes d'application</td>
+                                                    <td class="border px-4 py-2">Production</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Bind Mounts</td>
+                                                    <td class="border px-4 py-2">Code source, configuration</td>
+                                                    <td class="border px-4 py-2">Développement</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border px-4 py-2">Tmpfs</td>
+                                                    <td class="border px-4 py-2">Cache, sessions temporaires</td>
+                                                    <td class="border px-4 py-2">Les deux</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.5.2 Optimisation du Stockage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Recommandations</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Nettoyer régulièrement les volumes inutilisés</li>
+                                        <li>Utiliser des volumes nommés pour une meilleure traçabilité</li>
+                                        <li>Implémenter une stratégie de backup</li>
+                                        <li>Monitorer l'utilisation du stockage</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Commandes de Maintenance</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Nettoyage des volumes
+docker volume prune
+
+# Nettoyage complet
+docker system prune -a --volumes
+
+# Vérification de l'espace utilisé
+docker system df -v</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.5.3 Sécurité des Données</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Mesures de Sécurité</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Chiffrer les données sensibles</li>
+                                        <li>Limiter les permissions d'accès</li>
+                                        <li>Isoler les volumes par conteneur</li>
+                                        <li>Auditer régulièrement les accès</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple de Configuration Sécurisée</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Utilisation de volumes avec permissions restreintes
+docker run -d \
+  --name app-securisee \
+  --mount type=volume,source=data-secure,target=/data,readonly \
+  --user 1000:1000 \
+  mon-app:latest</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.5.4 Architecture et Organisation</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Structure Recommandée</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Séparer les données par type (configuration, logs, données)</li>
+                                        <li>Utiliser des étiquettes pour catégoriser les volumes</li>
+                                        <li>Documenter la structure de stockage</li>
+                                        <li>Planifier la scalabilité</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple d'Organisation</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Création de volumes avec étiquettes
+docker volume create \
+  --label env=prod \
+  --label type=data \
+  --label app=myapp \
+  myapp-data
+
+# Structure type pour une application
+docker run -d --name myapp \
+  --mount type=volume,source=myapp-config,target=/etc/myapp \
+  --mount type=volume,source=myapp-data,target=/var/lib/myapp \
+  --mount type=volume,source=myapp-logs,target=/var/log/myapp \
+  mon-app:latest</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Choix :</strong> Sélectionner le type de stockage approprié selon le cas d'usage.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Optimisation :</strong> Maintenir une gestion efficace du stockage avec un nettoyage régulier.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> Mettre en place des mesures de protection adaptées aux données.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Organisation :</strong> Structurer le stockage de manière cohérente et évolutive.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="5.6" class="text-3xl font-bold text-gray-800 mb-6">5.6 Travail Pratique : Gestion du Stockage pour une Application Web</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs du TP</h2>
+                        <p class="text-green-700 mb-2">Dans ce travail pratique, vous allez :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Mettre en place une application web avec différents types de stockage</li>
+                            <li>Configurer les volumes pour les données persistantes</li>
+                            <li>Utiliser les bind mounts pour le développement</li>
+                            <li>Implémenter le stockage temporaire avec tmpfs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.6.1 Préparation de l'Environnement</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Structure du Projet</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Création de la structure du projet
+mkdir app-demo
+cd app-demo
+
+# Création des répertoires
+mkdir src config data logs
+touch src/index.js config/app.conf</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.6.2 Configuration des Volumes</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Création des Volumes</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Création des volumes pour les données persistantes
+docker volume create app_data
+docker volume create app_logs
+
+# Vérification des volumes créés
+docker volume ls
+docker volume inspect app_data</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.6.3 Mise en Place de l'Application</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Dockerfile</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY src/ ./src/
+
+VOLUME ["/app/data", "/app/logs"]
+EXPOSE 3000
+
+CMD ["node", "src/index.js"]</pre>
+                                    </div>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Lancement avec Différents Types de Stockage</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Lancement en mode développement avec bind mounts
+docker run -d --name app-dev \
+  -v $(pwd)/src:/app/src \
+  -v $(pwd)/config:/app/config \
+  --mount type=volume,source=app_data,target=/app/data \
+  --mount type=volume,source=app_logs,target=/app/logs \
+  --tmpfs /app/temp:rw,size=100M \
+  -p 3000:3000 \
+  app-demo</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.6.4 Tests et Vérifications</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Vérification du Stockage</h3>
+                                    <div class="bg-gray-800 text-white p-4 rounded">
+                                        <pre class="font-mono text-sm">
+# Vérification des montages
+docker inspect app-dev
+
+# Test d'écriture dans les différents types de stockage
+docker exec app-dev sh -c "echo 'test' > /app/data/test.txt"
+docker exec app-dev sh -c "echo 'test' > /app/temp/test.txt"
+
+# Vérification de la persistance
+docker stop app-dev
+docker start app-dev
+docker exec app-dev ls -la /app/data /app/temp</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">5.6.5 Exercices Supplémentaires</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Pour Aller Plus Loin</h3>
+                                    <ul class="list-decimal list-inside text-gray-600">
+                                        <li>Mettez en place une sauvegarde automatique des volumes</li>
+                                        <li>Implémentez une rotation des logs</li>
+                                        <li>Configurez des limites de taille pour les volumes</li>
+                                        <li>Testez la restauration des données depuis une sauvegarde</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés du TP</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Structure :</strong> Organisation claire des différents types de stockage.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Volumes :</strong> Utilisation appropriée pour les données persistantes.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Bind Mounts :</strong> Configuration efficace pour le développement.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Tmpfs :</strong> Gestion optimale des données temporaires.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/nav.js"></script>
+</body>
+</html> 
