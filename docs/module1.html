@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1 - Introduction à Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+            <div class="p-4 border-b border-blue-700">
+                <h1 class="text-xl font-bold text-white">Formation Docker</h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module1.html" class="block p-2 text-white bg-blue-700 rounded">
+                            Module 1 - Introduction
+                        </a>
+                        <ul class="ml-4 mt-2 space-y-1">
+                            <li><a href="#1.1" class="block p-1 text-sm text-blue-100 hover:text-white">1.1 Bare Metal vs VM vs Container</a></li>
+                            <li><a href="#1.2" class="block p-1 text-sm text-blue-100 hover:text-white">1.2 Introduction à Docker</a></li>
+                            <li><a href="#1.3" class="block p-1 text-sm text-blue-100 hover:text-white">1.3 Pourquoi Docker</a></li>
+                        </ul>
+                    </li>
+                    <!-- Autres modules avec le même style que index.html -->
+                    <li>
+                        <a href="module2.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 2 - Installation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module3.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 3 - Conteneurs et Images
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module4.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 4 - Gestion Avancée
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module5.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 5 - Stockage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module6.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 6 - Réseautage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="module7.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Module 7 - Docker Compose
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Cheatsheet Docker
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="ml-64 flex-1 p-8 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
+                    <h1 id="1.1" class="text-3xl font-bold text-gray-800 mb-6">1.1 Quelle est la différence entre Bare Metal, Virtual Machine et Container ?</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour maximiser votre compréhension de ce chapitre, vous devriez avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Une compréhension de base des concepts informatiques</li>
+                            <li>Une familiarité avec le développement logiciel et le déploiement d'applications</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez en mesure de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Distinguer les caractéristiques principales des systèmes Bare Metal, des machines virtuelles (VM) et des conteneurs</li>
+                            <li>Comprendre les avantages et les inconvénients de chaque technologie</li>
+                            <li>Identifier le type de technologie le plus adapté à différents scénarios</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">1.1.1 Bare Metal</h2>
+                        <p class="text-gray-600 mb-6">
+                            Un système <strong>Bare Metal</strong> fait référence à un ordinateur ou un serveur physique qui exécute directement des applications sur son système d'exploitation. C'est le matériel pur, sans aucune couche de virtualisation. Imaginez votre ordinateur personnel ou votre téléphone mobile : lorsque vous ouvrez une application ou un jeu, il s'exécute directement sur le système d'exploitation de votre appareil. C'est un exemple de Bare Metal, où le matériel est directement en contact avec le logiciel.
+                        </p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">1.1.2 Virtual Machine (VM)</h2>
+                        <p class="text-gray-600 mb-6">
+                            Une <strong>machine virtuelle (VM)</strong> est comme un ordinateur dans votre ordinateur. Utilisant un logiciel appelé hyperviseur, elle crée un environnement virtuel qui imite un ordinateur physique. Chaque VM a son propre système d'exploitation et est séparée des autres VM sur le même hôte. Par exemple, si vous utilisez un Mac mais devez exécuter des applications Windows, vous pouvez installer Windows dans une VM. C'est comme avoir plusieurs ordinateurs distincts opérant sur une seule machine physique.
+                        </p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">1.1.3 Container</h2>
+                        <p class="text-gray-600 mb-6">
+                            Les <strong>conteneurs</strong> sont comme des appartements dans un grand immeuble résidentiel. Chaque appartement (conteneur) dispose de son propre aménagement intérieur, de meubles et de décoration (ses propres dépendances et configurations logicielles), tout en partageant des services communs comme la plomberie, l'électricité et le chauffage central (le système d'exploitation de l'hôte).
+                        </p>
+
+                        <!-- Tableau de comparaison -->
+                        <div class="overflow-x-auto mt-8 mb-8">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Critère</th>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bare Metal</th>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">VM</th>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Container</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Meilleure performance</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bonne performance</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Très efficace</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Isolation</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Moins d'isolation</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Excellente isolation</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bonne isolation</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Flexibilité</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Moins flexible</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Assez flexible</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Très flexible</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Résumé -->
+                    <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><strong>Bare Metal :</strong> Niveau le plus fondamental, performance maximale, accès direct au matériel.</li>
+                            <li><strong>Machines Virtuelles :</strong> Couche d'abstraction via hyperviseur, excellente isolation, moins efficace en ressources.</li>
+                            <li><strong>Conteneurs :</strong> Solution légère, partage du système d'exploitation, efficace en performance et ressources.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html> 
