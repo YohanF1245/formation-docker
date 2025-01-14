@@ -29,50 +29,142 @@
                     <!-- Module 1 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
-                            <a href="module1.html" class="flex-grow">Module 1 - Introduction</a>
+                            <a href="module1.html" class="flex-grow">
+                                <i class="fas fa-book mr-2"></i>
+                                Module 1 - Introduction
+                            </a>
                             <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
                         <ul id="module1-content" class="ml-4 space-y-1 hidden">
-                            <li><a href="module1.html#1.1" class="block p-1 text-sm text-blue-100 hover:text-white">1.1 Bare Metal vs VM vs Container</a></li>
-                            <li><a href="module1.html#1.2" class="block p-1 text-sm text-blue-100 hover:text-white">1.2 Introduction à Docker</a></li>
-                            <li><a href="module1.html#1.3" class="block p-1 text-sm text-blue-100 hover:text-white">1.3 Pourquoi Docker</a></li>
+                            <li><a href="module1.html#comparaison" class="block p-1 text-sm text-blue-100 hover:text-white">Bare Metal vs VM vs Container</a></li>
+                            <li><a href="module1.html#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker</a></li>
+                            <li><a href="module1.html#pourquoi" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi Docker</a></li>
                         </ul>
                     </li>
                     <!-- Module 2 (actif) -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
-                            <a href="module2.html" class="flex-grow">Module 2 - Installation</a>
+                            <a href="module2.html" class="flex-grow">
+                                <i class="fas fa-download mr-2"></i>
+                                Module 2 - Installation
+                            </a>
                             <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
                         <ul id="module2-content" class="ml-4 space-y-1">
-                            <li><a href="#2.1" class="block p-1 text-sm text-blue-100 hover:text-white">2.1 Installation sur Windows</a></li>
-                            <li><a href="#2.2" class="block p-1 text-sm text-blue-100 hover:text-white">2.2 Installation sur MacOS</a></li>
-                            <li><a href="#2.3" class="block p-1 text-sm text-blue-100 hover:text-white">2.3 Installation sur Linux</a></li>
+                            <li><a href="#windows" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Windows</a></li>
+                            <li><a href="#macos" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur MacOS</a></li>
+                            <li><a href="#linux" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Linux</a></li>
                         </ul>
                     </li>
                     <!-- Module 3 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
-                            <a href="module3.html" class="flex-grow">Module 3 - Conteneurs et Images</a>
+                            <a href="module3.html" class="flex-grow">
+                                <i class="fas fa-box mr-2"></i>
+                                Module 3 - Conteneurs et Images
+                            </a>
                             <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
                         <ul id="module3-content" class="ml-4 space-y-1 hidden">
-                            <li><a href="module3.html#3.1" class="block p-1 text-sm text-blue-100 hover:text-white">3.1 Conteneur vs Image</a></li>
-                            <li><a href="module3.html#3.2" class="block p-1 text-sm text-blue-100 hover:text-white">3.2 Docker Hub</a></li>
-                            <li><a href="module3.html#3.3" class="block p-1 text-sm text-blue-100 hover:text-white">3.3 Gestion des Images</a></li>
-                            <li><a href="module3.html#3.4" class="block p-1 text-sm text-blue-100 hover:text-white">3.4 Gestion des Conteneurs</a></li>
-                            <li><a href="module3.html#3.5" class="block p-1 text-sm text-blue-100 hover:text-white">3.5 Exécuter des Commandes</a></li>
-                            <li><a href="module3.html#3.6" class="block p-1 text-sm text-blue-100 hover:text-white">3.6 Monitorer et Dépanner</a></li>
-                            <li><a href="module3.html#3.7" class="block p-1 text-sm text-blue-100 hover:text-white">3.7 Travail Pratique</a></li>
+                            <li><a href="module3.html#conteneur-vs-image" class="block p-1 text-sm text-blue-100 hover:text-white">Conteneur vs Image</a></li>
+                            <li><a href="module3.html#docker-hub" class="block p-1 text-sm text-blue-100 hover:text-white">Docker Hub</a></li>
+                            <li><a href="module3.html#gestion-images" class="block p-1 text-sm text-blue-100 hover:text-white">Gestion des Images</a></li>
+                            <li><a href="module3.html#gestion-conteneurs" class="block p-1 text-sm text-blue-100 hover:text-white">Gestion des Conteneurs</a></li>
+                            <li><a href="module3.html#executer-commandes" class="block p-1 text-sm text-blue-100 hover:text-white">Exécuter des Commandes</a></li>
+                            <li><a href="module3.html#monitorer" class="block p-1 text-sm text-blue-100 hover:text-white">Monitorer et Dépanner</a></li>
+                            <li><a href="module3.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Autres modules... -->
+                    <!-- Module 4 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
+                            <a href="module4.html" class="flex-grow">
+                                <i class="fas fa-cogs mr-2"></i>
+                                Module 4 - Gestion Avancée
+                            </a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module4-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module4.html#prerequis" class="block p-1 text-sm text-blue-100 hover:text-white">Prérequis Images Personnalisées</a></li>
+                            <li><a href="module4.html#pourquoi-images" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi des Images Personnalisées</a></li>
+                            <li><a href="module4.html#dockerfile" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction au Dockerfile</a></li>
+                            <li><a href="module4.html#construction" class="block p-1 text-sm text-blue-100 hover:text-white">Construction d'Images</a></li>
+                            <li><a href="module4.html#optimisation" class="block p-1 text-sm text-blue-100 hover:text-white">Optimisation des Images</a></li>
+                            <li><a href="module4.html#tags" class="block p-1 text-sm text-blue-100 hover:text-white">Gestion des Tags</a></li>
+                            <li><a href="module4.html#distribution" class="block p-1 text-sm text-blue-100 hover:text-white">Distribution d'Images</a></li>
+                            <li><a href="module4.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 5 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module5-content">
+                            <a href="module5.html" class="flex-grow">
+                                <i class="fas fa-hdd mr-2"></i>
+                                Module 5 - Stockage
+                            </a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module5-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module5.html#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction au Stockage</a></li>
+                            <li><a href="module5.html#volumes" class="block p-1 text-sm text-blue-100 hover:text-white">Les Volumes Docker</a></li>
+                            <li><a href="module5.html#bind-mounts" class="block p-1 text-sm text-blue-100 hover:text-white">Les Bind Mounts</a></li>
+                            <li><a href="module5.html#tmpfs" class="block p-1 text-sm text-blue-100 hover:text-white">Les Tmpfs Mounts</a></li>
+                            <li><a href="module5.html#securite" class="block p-1 text-sm text-blue-100 hover:text-white">Stockage et Sécurité</a></li>
+                            <li><a href="module5.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 6 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
+                            <a href="module6.html" class="flex-grow">
+                                <i class="fas fa-network-wired mr-2"></i>
+                                Module 6 - Réseautage
+                            </a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module6-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module6.html#concepts" class="block p-1 text-sm text-blue-100 hover:text-white">Concepts de Base</a></li>
+                            <li><a href="module6.html#gestion" class="block p-1 text-sm text-blue-100 hover:text-white">Création et Gestion</a></li>
+                            <li><a href="module6.html#connexion" class="block p-1 text-sm text-blue-100 hover:text-white">Connexion des Conteneurs</a></li>
+                            <li><a href="module6.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 7 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
+                            <a href="module7.html" class="flex-grow">
+                                <i class="fas fa-layer-group mr-2"></i>
+                                Module 7 - Docker Compose
+                            </a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module7-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module7.html#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker Compose</a></li>
+                            <li><a href="module7.html#services" class="block p-1 text-sm text-blue-100 hover:text-white">Démarrer et Arrêter des Services</a></li>
+                            <li><a href="module7.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Cheatsheet -->
+                    <li>
+                        <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            <i class="fas fa-list-alt mr-2"></i>
+                            Cheatsheet Docker
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </aside>
@@ -81,13 +173,13 @@
         <main class="ml-64 flex-1 p-8 overflow-y-auto">
             <div class="mx-auto">
                 <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
-                    <h1 id="2.1" class="text-3xl font-bold text-gray-800 mb-6">2.1 Comment installer Docker sur Windows 10</h1>
+                    <h1 id="windows" class="text-3xl font-bold text-gray-800 mb-6">Installation sur Windows</h1>
                     
                     <p class="text-lg text-gray-600 mb-6">
                         L'installation de Docker sur Windows 10 est un processus direct, adapté à tous les utilisateurs, qu'ils soient débutants ou expérimentés. Suivez ces étapes pour installer Docker Desktop, l'application officielle de Docker pour Windows.
                     </p>
 
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">2.1.1 Étapes pour Installer Docker Desktop sur Windows 10</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Étapes pour Installer Docker Desktop sur Windows 10</h2>
                     
                     <div class="space-y-6">
                         <div class="bg-blue-50 p-4 rounded-lg">
@@ -137,13 +229,13 @@
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <h1 id="2.2" class="text-3xl font-bold text-gray-800 mb-6">2.2 Comment installer Docker sur MacOS</h1>
+                    <h1 id="macos" class="text-3xl font-bold text-gray-800 mb-6">Installation sur MacOS</h1>
                     
                     <p class="text-lg text-gray-600 mb-6">
                         Installer Docker sur MacOS est un processus simple et direct. Docker Desktop pour Mac est l'application officielle qui permet d'exécuter Docker sur un système MacOS.
                     </p>
 
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">2.2.1 Étapes pour Installer Docker Desktop sur MacOS</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Étapes pour Installer Docker Desktop sur MacOS</h2>
                     
                     <div class="space-y-6">
                         <div class="bg-blue-50 p-4 rounded-lg">
@@ -193,9 +285,9 @@
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <h1 id="2.3" class="text-3xl font-bold text-gray-800 mb-6">2.3 Comment installer Docker sur Linux</h1>
+                    <h1 id="linux" class="text-3xl font-bold text-gray-800 mb-6">Installation sur Linux</h1>
 
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">2.3.1 Étapes d'installation</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Étapes d'installation</h2>
                     
                     <div class="space-y-6">
                         <div class="bg-blue-50 p-4 rounded-lg">
