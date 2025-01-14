@@ -7,11 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .sidebar-transition {
+            transition: transform 0.3s ease-in-out;
+        }
+        @media (max-width: 768px) {
+            .sidebar-hidden {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
+    <button id="mobile-menu-button" class="md:hidden fixed top-4 left-4 z-50 bg-blue-800 text-white p-2 rounded-md">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-30 hidden md:hidden"></div>
+
     <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+        <aside id="sidebar" class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto z-40 sidebar-transition sidebar-hidden md:sidebar-visible md:transform-none">
             <div class="p-4 border-b border-blue-700">
                 <h1 class="text-xl font-bold text-white flex items-center gap-3">
                     <i class="fab fa-docker"></i>
@@ -26,7 +41,6 @@
                             Accueil
                         </a>
                     </li>
-                    <!-- Module 1 (actif) -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
                             <a href="module1.html" class="flex-grow">
@@ -43,7 +57,6 @@
                             <li><a href="#pourquoi" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi Docker</a></li>
                         </ul>
                     </li>
-                    <!-- Module 2 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
                             <a href="module2.html" class="flex-grow">
@@ -60,7 +73,6 @@
                             <li><a href="module2.html#linux" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Linux</a></li>
                         </ul>
                     </li>
-                    <!-- Module 3 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
                             <a href="module3.html" class="flex-grow">
@@ -81,7 +93,6 @@
                             <li><a href="module3.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 4 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
                             <a href="module4.html" class="flex-grow">
@@ -103,7 +114,6 @@
                             <li><a href="module4.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 5 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module5-content">
                             <a href="module5.html" class="flex-grow">
@@ -123,7 +133,6 @@
                             <li><a href="module5.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 6 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
                             <a href="module6.html" class="flex-grow">
@@ -141,7 +150,6 @@
                             <li><a href="module6.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 7 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
                             <a href="module7.html" class="flex-grow">
@@ -158,7 +166,6 @@
                             <li><a href="module7.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Cheatsheet -->
                     <li>
                         <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
                             <i class="fas fa-list-alt mr-2"></i>
@@ -169,13 +176,11 @@
             </nav>
         </aside>
 
-        <!-- Main content -->
-        <main class="ml-64 flex-1 p-8 overflow-y-auto">
+        <main class="w-full md:ml-64 flex-1 p-4 md:p-8 overflow-y-auto">
             <div class="mx-auto">
                 <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
                     <h1 id="comparaison" class="text-3xl font-bold text-gray-800 mb-6">Bare Metal vs VM vs Container</h1>
                     
-                    <!-- Prérequis -->
                     <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
                         <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
                         <p class="text-blue-700 mb-2">Pour maximiser votre compréhension de ce chapitre, vous devriez avoir :</p>
@@ -185,7 +190,6 @@
                         </ul>
                     </div>
 
-                    <!-- Objectifs -->
                     <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                         <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                         <p class="text-green-700 mb-2">À la fin de ce chapitre, vous serez en mesure de :</p>
@@ -198,7 +202,6 @@
 
                     <hr class="my-8 border-t border-gray-200">
 
-                    <!-- Contenu principal -->
                     <section>
                         <h2 class="text-2xl font-bold text-gray-800 mb-4">Bare Metal</h2>
                         <p class="text-gray-600 mb-6">
@@ -216,7 +219,6 @@
                         </p>
                     </section>
 
-                    <!-- Résumé -->
                     <div class="bg-gray-50 p-6 rounded-lg mt-8">
                         <h2 class="text-2xl font-bold text-gray-800 mb-4">Résumé</h2>
                         <ul class="space-y-2 text-gray-600">
@@ -229,6 +231,20 @@
             </div>
         </main>
     </div>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMobileMenu() {
+            sidebar.classList.toggle('sidebar-hidden');
+            overlay.classList.toggle('hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+    </script>
     <script src="./js/nav.js"></script>
 </body>
 </html> 

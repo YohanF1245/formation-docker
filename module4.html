@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 4 - Gestion Avancée des Images Docker</title>
+    <title>Module 4 - Gestion Avancée | Formation Docker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="flex h-screen">
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
             <div class="p-4 border-b border-blue-700">
                 <h1 class="text-xl font-bold text-white flex items-center gap-3">
                     <i class="fab fa-docker"></i>
@@ -169,10 +185,13 @@
             </nav>
         </aside>
 
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
         <!-- Main content -->
-        <main class="ml-64 flex-1 p-8 overflow-y-auto">
-            <div class="mx-auto">
-                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm p-6 lg:p-8 markdown-content">
                     <h1 id="prerequis" class="text-3xl font-bold text-gray-800 mb-6">Prérequis pour la Création d'Images</h1>
                     
                     <!-- Prérequis -->
@@ -1350,6 +1369,36 @@ docker run -d -p 3000:3000 votre-username/mon-app:latest</pre>
             </div>
         </main>
     </div>
-    <script src="./js/nav.js"></script>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html> 

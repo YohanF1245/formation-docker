@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1 - Introduction | Formation Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+
+            <nav class="mt-4">
+                <div class="px-4 py-2">
+                    <a href="index.html" class="flex items-center space-x-2 text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors">
+                        <i class="fas fa-home"></i>
+                        <span>Accueil</span>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module1.html" class="flex items-center justify-between text-white bg-blue-500 bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-book"></i>
+                            <span>Module 1 - Introduction</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <!-- Autres modules avec la même structure que dans index.html -->
+                // ... reste de la navigation ...
+
+            </nav>
+        </aside>
+
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
+        <!-- Contenu principal -->
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Fil d'Ariane -->
+                <nav class="text-sm mb-6">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Accueil</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-600">Module 1 - Introduction</span>
+                </nav>
+
+                <!-- Contenu du module -->
+                <div class="bg-white rounded-xl shadow-sm p-6 lg:p-8 markdown-content">
+                    <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Module 1 - Introduction à Docker</h1>
+
+                    <!-- Objectifs -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
+                        <h2 class="text-lg font-semibold text-blue-800 mb-2">Objectifs du module</h2>
+                        <ul class="list-disc list-inside text-blue-700 space-y-1">
+                            <li>Comprendre les concepts fondamentaux de la conteneurisation</li>
+                            <li>Découvrir les avantages de Docker par rapport aux solutions traditionnelles</li>
+                            <li>Maîtriser la terminologie de base de Docker</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="comparaison" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Bare Metal vs VM vs Container</h2>
+                    <p class="text-gray-600 mb-6">
+                        Avant de plonger dans Docker, il est essentiel de comprendre les différentes approches de virtualisation et de conteneurisation. Chaque approche a ses avantages et ses cas d'utilisation spécifiques.
+                    </p>
+
+                    <!-- Tableau comparatif -->
+                    <div class="overflow-x-auto mb-8">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Type</th>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Performance</th>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Isolation</th>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Ressources</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 border-b">Bare Metal</td>
+                                    <td class="py-3 px-4 border-b">Excellente</td>
+                                    <td class="py-3 px-4 border-b">Aucune</td>
+                                    <td class="py-3 px-4 border-b">100% dédiées</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b">Machine Virtuelle</td>
+                                    <td class="py-3 px-4 border-b">Bonne</td>
+                                    <td class="py-3 px-4 border-b">Complète</td>
+                                    <td class="py-3 px-4 border-b">Élevées</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b">Conteneur</td>
+                                    <td class="py-3 px-4 border-b">Proche du natif</td>
+                                    <td class="py-3 px-4 border-b">Légère</td>
+                                    <td class="py-3 px-4 border-b">Minimales</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="introduction" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Introduction à Docker</h2>
+                    <p class="text-gray-600 mb-6">
+                        Docker est une plateforme open-source qui automatise le déploiement d'applications dans des conteneurs logiciels. Ces conteneurs embarquent tout ce dont l'application a besoin pour s'exécuter, garantissant ainsi qu'elle fonctionnera de la même manière quel que soit l'environnement.
+                    </p>
+
+                    <!-- Note importante -->
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg my-6">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-2">À retenir</h3>
+                        <p class="text-yellow-700">
+                            Docker n'est pas une solution de virtualisation traditionnelle. Il s'agit d'une technologie de conteneurisation qui partage le noyau du système d'exploitation hôte.
+                        </p>
+                    </div>
+
+                    <h2 id="pourquoi" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Pourquoi Docker ?</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Docker résout plusieurs problèmes majeurs du développement et du déploiement d'applications :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Uniformisation des environnements de développement</li>
+                            <li>Simplification du déploiement</li>
+                            <li>Isolation des applications</li>
+                            <li>Optimisation des ressources</li>
+                            <li>Scalabilité facilitée</li>
+                        </ul>
+                    </div>
+
+                    <!-- Navigation entre modules -->
+                    <div class="flex justify-between items-center mt-12 pt-6 border-t border-gray-200">
+                        <span></span>
+                        <a href="module2.html" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            Module suivant
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 

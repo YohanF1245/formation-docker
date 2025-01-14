@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+
+            <nav class="mt-4">
+                <div class="px-4 py-2">
+                    <a href="index.html" class="flex items-center space-x-2 text-white bg-blue-500 bg-opacity-50 rounded-lg p-3 transition-colors hover:bg-opacity-75">
+                        <i class="fas fa-home"></i>
+                        <span>Accueil</span>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module1.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-book"></i>
+                            <span>Module 1 - Introduction</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module2.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-cog"></i>
+                            <span>Module 2 - Installation</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module3.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-box"></i>
+                            <span>Module 3 - Conteneurs</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module4.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Module 4 - Images</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module5.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-database"></i>
+                            <span>Module 5 - Volumes</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module6.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Module 6 - Réseaux</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module7.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-cubes"></i>
+                            <span>Module 7 - Compose</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2 mt-4">
+                    <a href="cheatsheet.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Cheatsheet</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
+        <!-- Contenu principal -->
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- En-tête -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6 card-hover">
+                    <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Formation Docker</h1>
+                    <p class="text-lg text-gray-600">
+                        Bienvenue dans cette formation complète sur Docker. Découvrez comment utiliser les conteneurs pour simplifier le développement et le déploiement de vos applications.
+                    </p>
+                </div>
+
+                <!-- Grille des modules -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Module 1 -->
+                    <a href="module1.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                    <i class="fas fa-book text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 1</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Introduction</h3>
+                            <p class="text-gray-600">Découvrez les concepts fondamentaux de Docker et de la conteneurisation.</p>
+                            <div class="mt-4 flex items-center text-blue-600 group-hover:text-blue-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 2 -->
+                    <a href="module2.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                    <i class="fas fa-cog text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 2</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Installation</h3>
+                            <p class="text-gray-600">Installez Docker sur votre système et configurez votre environnement.</p>
+                            <div class="mt-4 flex items-center text-green-600 group-hover:text-green-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 3 -->
+                    <a href="module3.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-purple-100 text-purple-600 p-3 rounded-lg">
+                                    <i class="fas fa-box text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 3</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Conteneurs</h3>
+                            <p class="text-gray-600">Apprenez à créer et gérer des conteneurs Docker.</p>
+                            <div class="mt-4 flex items-center text-purple-600 group-hover:text-purple-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 4 -->
+                    <a href="module4.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-orange-100 text-orange-600 p-3 rounded-lg">
+                                    <i class="fas fa-layer-group text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 4</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Images</h3>
+                            <p class="text-gray-600">Créez et optimisez vos propres images Docker.</p>
+                            <div class="mt-4 flex items-center text-orange-600 group-hover:text-orange-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 5 -->
+                    <a href="module5.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-red-100 text-red-600 p-3 rounded-lg">
+                                    <i class="fas fa-database text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 5</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Volumes</h3>
+                            <p class="text-gray-600">Gérez la persistance des données avec les volumes Docker.</p>
+                            <div class="mt-4 flex items-center text-red-600 group-hover:text-red-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 6 -->
+                    <a href="module6.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-indigo-100 text-indigo-600 p-3 rounded-lg">
+                                    <i class="fas fa-network-wired text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 6</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Réseaux</h3>
+                            <p class="text-gray-600">Configurez les réseaux pour vos conteneurs Docker.</p>
+                            <div class="mt-4 flex items-center text-indigo-600 group-hover:text-indigo-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Module 7 -->
+                    <a href="module7.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-teal-100 text-teal-600 p-3 rounded-lg">
+                                    <i class="fas fa-cubes text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Module 7</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Docker Compose</h3>
+                            <p class="text-gray-600">Orchestrez des applications multi-conteneurs avec Docker Compose.</p>
+                            <div class="mt-4 flex items-center text-teal-600 group-hover:text-teal-700">
+                                <span class="mr-2">Commencer</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Cheatsheet -->
+                    <a href="cheatsheet.html" class="group">
+                        <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-gray-100 text-gray-600 p-3 rounded-lg">
+                                    <i class="fas fa-list-alt text-xl"></i>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Cheatsheet</h2>
+                            </div>
+                            <h3 class="text-gray-800 font-medium mb-2">Guide de référence</h3>
+                            <p class="text-gray-600">Retrouvez toutes les commandes Docker essentielles.</p>
+                            <div class="mt-4 flex items-center text-gray-600 group-hover:text-gray-700">
+                                <span class="mr-2">Consulter</span>
+                                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 

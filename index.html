@@ -7,18 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="flex h-screen">
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
-            <div class="p-4 border-b border-blue-700">
-                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fab fa-docker"></i>
                     Formation Docker
                 </h1>
             </div>
-            <nav class="p-4">
+            <nav class="mt-4">
                 <ul class="space-y-2">
                     <li>
                         <a href="index.html" class="block p-2 text-white bg-blue-700 rounded transition-colors duration-150">
@@ -169,15 +185,18 @@
             </nav>
         </aside>
 
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
         <!-- Main content -->
-        <main class="ml-64 flex-1 p-8 overflow-y-auto">
-            <div class="mx-auto">
-                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-8">Formation Docker</h1>
-                    <p class="text-lg text-gray-600 mb-4">
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm p-6 lg:p-8 markdown-content">
+                    <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Formation Docker</h1>
+                    <p class="text-lg text-gray-600 mb-8">
                         Bienvenue dans cette formation complète sur Docker. Cette formation est structurée en 7 modules qui vous permettront de maîtriser Docker, des concepts de base jusqu'aux fonctionnalités avancées.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Module cards -->
                         <div class="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-shadow">
                             <a href="module1.html" class="block">
@@ -256,6 +275,36 @@
             </div>
         </main>
     </div>
-    <script src="./js/nav.js"></script>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html> 

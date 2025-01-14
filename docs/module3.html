@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 - Conteneurs et Images | Formation Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+
+            <nav class="mt-4">
+                <div class="px-4 py-2">
+                    <a href="index.html" class="flex items-center space-x-2 text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors">
+                        <i class="fas fa-home"></i>
+                        <span>Accueil</span>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module1.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-book"></i>
+                            <span>Module 1 - Introduction</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module2.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-cog"></i>
+                            <span>Module 2 - Installation</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module3.html" class="flex items-center justify-between text-white bg-blue-500 bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-box"></i>
+                            <span>Module 3 - Conteneurs et Images</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <!-- Autres modules -->
+                // ... reste de la navigation ...
+            </nav>
+        </aside>
+
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
+        <!-- Contenu principal -->
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Fil d'Ariane -->
+                <nav class="text-sm mb-6">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Accueil</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-600">Module 3 - Conteneurs et Images</span>
+                </nav>
+
+                <!-- Contenu du module -->
+                <div class="bg-white rounded-xl shadow-sm p-6 lg:p-8 markdown-content">
+                    <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Module 3 - Conteneurs et Images Docker</h1>
+
+                    <!-- Objectifs -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
+                        <h2 class="text-lg font-semibold text-blue-800 mb-2">Objectifs du module</h2>
+                        <ul class="list-disc list-inside text-blue-700 space-y-1">
+                            <li>Comprendre la différence entre conteneurs et images</li>
+                            <li>Maîtriser la gestion des images Docker</li>
+                            <li>Apprendre à manipuler les conteneurs</li>
+                            <li>Découvrir Docker Hub et le partage d'images</li>
+                        </ul>
+                    </div>
+
+                    <!-- Images Docker -->
+                    <h2 id="images" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Les Images Docker</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Une image Docker est un modèle en lecture seule qui contient :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Un système de fichiers en couches</li>
+                            <li>Des métadonnées d'exécution</li>
+                            <li>Des dépendances</li>
+                            <li>Des configurations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Commandes Images -->
+                    <div class="bg-gray-50 p-6 rounded-lg mt-6 space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Commandes principales pour les images</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker pull image:tag</code>
+                                <p class="text-sm text-gray-600 mt-2">Télécharge une image depuis Docker Hub</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker images</code>
+                                <p class="text-sm text-gray-600 mt-2">Liste les images disponibles localement</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker rmi image</code>
+                                <p class="text-sm text-gray-600 mt-2">Supprime une image locale</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker build -t nom .</code>
+                                <p class="text-sm text-gray-600 mt-2">Construit une image depuis un Dockerfile</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteneurs Docker -->
+                    <h2 id="conteneurs" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Les Conteneurs Docker</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Un conteneur est une instance exécutable d'une image. Il peut être :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Créé, démarré, arrêté, déplacé ou supprimé</li>
+                            <li>Connecté à un ou plusieurs réseaux</li>
+                            <li>Attaché à du stockage</li>
+                            <li>Créé à partir de l'état actuel</li>
+                        </ul>
+                    </div>
+
+                    <!-- Commandes Conteneurs -->
+                    <div class="bg-gray-50 p-6 rounded-lg mt-6 space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Commandes principales pour les conteneurs</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker run image</code>
+                                <p class="text-sm text-gray-600 mt-2">Crée et démarre un conteneur</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker ps</code>
+                                <p class="text-sm text-gray-600 mt-2">Liste les conteneurs en cours d'exécution</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker stop container</code>
+                                <p class="text-sm text-gray-600 mt-2">Arrête un conteneur en cours d'exécution</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <code class="text-blue-600">docker rm container</code>
+                                <p class="text-sm text-gray-600 mt-2">Supprime un conteneur arrêté</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Options de run -->
+                    <h2 id="options" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Options courantes de docker run</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Option</th>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Description</th>
+                                    <th class="text-left py-3 px-4 bg-gray-50">Exemple</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 border-b"><code>-d</code></td>
+                                    <td class="py-3 px-4 border-b">Mode détaché (background)</td>
+                                    <td class="py-3 px-4 border-b"><code>docker run -d nginx</code></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b"><code>-p</code></td>
+                                    <td class="py-3 px-4 border-b">Mapping de ports</td>
+                                    <td class="py-3 px-4 border-b"><code>docker run -p 8080:80 nginx</code></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b"><code>-v</code></td>
+                                    <td class="py-3 px-4 border-b">Montage de volume</td>
+                                    <td class="py-3 px-4 border-b"><code>docker run -v /host:/container nginx</code></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b"><code>--name</code></td>
+                                    <td class="py-3 px-4 border-b">Nom personnalisé</td>
+                                    <td class="py-3 px-4 border-b"><code>docker run --name web nginx</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Exercice pratique -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mt-8">
+                        <h2 class="text-lg font-semibold text-green-800 mb-2">Exercice pratique</h2>
+                        <p class="text-green-700 mb-4">Créez un conteneur nginx et exposez-le sur le port 8080 :</p>
+                        <div class="bg-white p-4 rounded-lg font-mono text-sm">
+                            <p class="text-gray-700"># Téléchargement de l'image nginx</p>
+                            <p class="text-blue-600">docker pull nginx</p>
+                            <p class="text-gray-700 mt-2"># Lancement du conteneur</p>
+                            <p class="text-blue-600">docker run -d -p 8080:80 --name mon-nginx nginx</p>
+                            <p class="text-gray-700 mt-2"># Vérification</p>
+                            <p class="text-blue-600">docker ps</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation entre modules -->
+                    <div class="flex justify-between items-center mt-12 pt-6 border-t border-gray-200">
+                        <a href="module2.html" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Module précédent
+                        </a>
+                        <a href="module4.html" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            Module suivant
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 

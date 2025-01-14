@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2 - Installation | Formation Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+
+            <nav class="mt-4">
+                <div class="px-4 py-2">
+                    <a href="index.html" class="flex items-center space-x-2 text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors">
+                        <i class="fas fa-home"></i>
+                        <span>Accueil</span>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module1.html" class="flex items-center justify-between text-white hover:bg-blue-500 hover:bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-book"></i>
+                            <span>Module 1 - Introduction</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="px-4 py-2">
+                    <a href="module2.html" class="flex items-center justify-between text-white bg-blue-500 bg-opacity-50 rounded-lg p-3 transition-colors group">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-cog"></i>
+                            <span>Module 2 - Installation</span>
+                        </div>
+                        <i class="fas fa-chevron-right opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <!-- Autres modules -->
+                // ... reste de la navigation ...
+            </nav>
+        </aside>
+
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
+        <!-- Contenu principal -->
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Fil d'Ariane -->
+                <nav class="text-sm mb-6">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Accueil</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-600">Module 2 - Installation</span>
+                </nav>
+
+                <!-- Contenu du module -->
+                <div class="bg-white rounded-xl shadow-sm p-6 lg:p-8 markdown-content">
+                    <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Module 2 - Installation de Docker</h1>
+
+                    <!-- Objectifs -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
+                        <h2 class="text-lg font-semibold text-blue-800 mb-2">Objectifs du module</h2>
+                        <ul class="list-disc list-inside text-blue-700 space-y-1">
+                            <li>Installer Docker sur différents systèmes d'exploitation</li>
+                            <li>Configurer Docker pour un usage optimal</li>
+                            <li>Vérifier l'installation et résoudre les problèmes courants</li>
+                        </ul>
+                    </div>
+
+                    <!-- Prérequis système -->
+                    <h2 id="prerequis" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Prérequis système</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Avant d'installer Docker, assurez-vous que votre système répond aux exigences minimales :</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Windows -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold mb-2">Windows</h3>
+                                <ul class="list-disc list-inside text-sm">
+                                    <li>Windows 10 64-bit</li>
+                                    <li>WSL 2 activé</li>
+                                    <li>Virtualisation activée</li>
+                                </ul>
+                            </div>
+                            <!-- MacOS -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold mb-2">MacOS</h3>
+                                <ul class="list-disc list-inside text-sm">
+                                    <li>MacOS 10.15+</li>
+                                    <li>Processeur Intel/Apple</li>
+                                    <li>4GB RAM minimum</li>
+                                </ul>
+                            </div>
+                            <!-- Linux -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold mb-2">Linux</h3>
+                                <ul class="list-disc list-inside text-sm">
+                                    <li>Kernel 3.10+</li>
+                                    <li>systemd</li>
+                                    <li>64-bit requis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Installation Windows -->
+                    <h2 id="windows" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Installation sur Windows</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Pour installer Docker sur Windows :</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li>Activez WSL 2 via PowerShell en administrateur :</li>
+                            <div class="bg-gray-800 text-white p-4 rounded-lg my-2 font-mono text-sm">
+                                dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+                            </div>
+                            <li>Téléchargez Docker Desktop depuis le site officiel</li>
+                            <li>Exécutez l'installateur</li>
+                            <li>Redémarrez votre ordinateur</li>
+                        </ol>
+                    </div>
+
+                    <!-- Installation MacOS -->
+                    <h2 id="macos" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Installation sur MacOS</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Pour installer Docker sur MacOS :</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li>Téléchargez Docker Desktop pour Mac</li>
+                            <li>Ouvrez le fichier .dmg</li>
+                            <li>Glissez l'application dans le dossier Applications</li>
+                            <li>Lancez Docker Desktop</li>
+                        </ol>
+                    </div>
+
+                    <!-- Installation Linux -->
+                    <h2 id="linux" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Installation sur Linux</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Pour installer Docker sur Ubuntu :</p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm space-y-2">
+                            <p># Mise à jour des paquets</p>
+                            <p>sudo apt-get update</p>
+                            <p># Installation des prérequis</p>
+                            <p>sudo apt-get install ca-certificates curl gnupg lsb-release</p>
+                            <p># Ajout de la clé GPG officielle de Docker</p>
+                            <p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</p>
+                            <p># Installation de Docker</p>
+                            <p>sudo apt-get install docker-ce docker-ce-cli containerd.io</p>
+                        </div>
+                    </div>
+
+                    <!-- Vérification -->
+                    <h2 id="verification" class="text-2xl font-bold text-gray-800 mt-8 mb-4">Vérification de l'installation</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Pour vérifier que Docker est correctement installé :</p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
+                            docker --version<br>
+                            docker run hello-world
+                        </div>
+                    </div>
+
+                    <!-- Navigation entre modules -->
+                    <div class="flex justify-between items-center mt-12 pt-6 border-t border-gray-200">
+                        <a href="module1.html" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Module précédent
+                        </a>
+                        <a href="module3.html" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            Module suivant
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-50');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-50');
+                document.body.style.overflow = '';
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 
