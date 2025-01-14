@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4 - Gestion Avancée des Images Docker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto">
+            <div class="p-4 border-b border-blue-700">
+                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+                    <i class="fab fa-docker"></i>
+                    Formation Docker
+                </h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            <i class="fas fa-home mr-2"></i>
+                            Accueil
+                        </a>
+                    </li>
+                    <!-- Module 1 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
+                            <a href="module1.html" class="flex-grow">Module 1 - Introduction</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module1-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module1.html#1.1" class="block p-1 text-sm text-blue-100 hover:text-white">1.1 Bare Metal vs VM vs Container</a></li>
+                            <li><a href="module1.html#1.2" class="block p-1 text-sm text-blue-100 hover:text-white">1.2 Introduction à Docker</a></li>
+                            <li><a href="module1.html#1.3" class="block p-1 text-sm text-blue-100 hover:text-white">1.3 Pourquoi Docker</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 2 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
+                            <a href="module2.html" class="flex-grow">Module 2 - Installation</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module2-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module2.html#2.1" class="block p-1 text-sm text-blue-100 hover:text-white">2.1 Installation sur Windows</a></li>
+                            <li><a href="module2.html#2.2" class="block p-1 text-sm text-blue-100 hover:text-white">2.2 Installation sur MacOS</a></li>
+                            <li><a href="module2.html#2.3" class="block p-1 text-sm text-blue-100 hover:text-white">2.3 Installation sur Linux</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 3 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
+                            <a href="module3.html" class="flex-grow">Module 3 - Conteneurs et Images</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module3-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module3.html#3.1" class="block p-1 text-sm text-blue-100 hover:text-white">3.1 Conteneur vs Image</a></li>
+                            <li><a href="module3.html#3.2" class="block p-1 text-sm text-blue-100 hover:text-white">3.2 Docker Hub</a></li>
+                            <li><a href="module3.html#3.3" class="block p-1 text-sm text-blue-100 hover:text-white">3.3 Gestion des Images</a></li>
+                            <li><a href="module3.html#3.4" class="block p-1 text-sm text-blue-100 hover:text-white">3.4 Gestion des Conteneurs</a></li>
+                            <li><a href="module3.html#3.5" class="block p-1 text-sm text-blue-100 hover:text-white">3.5 Exécuter des Commandes</a></li>
+                            <li><a href="module3.html#3.6" class="block p-1 text-sm text-blue-100 hover:text-white">3.6 Monitorer et Dépanner</a></li>
+                            <li><a href="module3.html#3.7" class="block p-1 text-sm text-blue-100 hover:text-white">3.7 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 4 (actif) -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
+                            <a href="module4.html" class="flex-grow">Module 4 - Gestion Avancée</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module4-content" class="ml-4 space-y-1">
+                            <li><a href="#4.1" class="block p-1 text-sm text-blue-100 hover:text-white">4.1 Prérequis Images Personnalisées</a></li>
+                            <li><a href="#4.2" class="block p-1 text-sm text-blue-100 hover:text-white">4.2 Pourquoi Créer des Images Docker Personnalisées ?</a></li>
+                            <li><a href="#4.3" class="block p-1 text-sm text-blue-100 hover:text-white">4.3 Introduction au Dockerfile</a></li>
+                            <li><a href="#4.4" class="block p-1 text-sm text-blue-100 hover:text-white">4.4 Construction d'Images</a></li>
+                            <li><a href="#4.5" class="block p-1 text-sm text-blue-100 hover:text-white">4.5 Optimisation des Images</a></li>
+                            <li><a href="#4.6" class="block p-1 text-sm text-blue-100 hover:text-white">4.6 Gestion des Tags</a></li>
+                            <li><a href="#4.7" class="block p-1 text-sm text-blue-100 hover:text-white">4.7 Distribution d'Images</a></li>
+                            <li><a href="#4.8" class="block p-1 text-sm text-blue-100 hover:text-white">4.8 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 5 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module5-content">
+                            <a href="module5.html" class="flex-grow">Module 5 - Stockage</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module5-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module5.html#5.1" class="block p-1 text-sm text-blue-100 hover:text-white">5.1 Introduction au Stockage</a></li>
+                            <li><a href="module5.html#5.2" class="block p-1 text-sm text-blue-100 hover:text-white">5.2 Les Volumes Docker</a></li>
+                            <li><a href="module5.html#5.3" class="block p-1 text-sm text-blue-100 hover:text-white">5.3 Les Bind Mounts</a></li>
+                            <li><a href="module5.html#5.4" class="block p-1 text-sm text-blue-100 hover:text-white">5.4 Les Tmpfs Mounts</a></li>
+                            <li><a href="module5.html#5.5" class="block p-1 text-sm text-blue-100 hover:text-white">5.5 Stockage et Sécurité</a></li>
+                            <li><a href="module5.html#5.6" class="block p-1 text-sm text-blue-100 hover:text-white">5.6 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 6 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
+                            <a href="module6.html" class="flex-grow">Module 6 - Réseautage</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module6-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module6.html#6.1" class="block p-1 text-sm text-blue-100 hover:text-white">6.1 Concepts de Base</a></li>
+                            <li><a href="module6.html#6.2" class="block p-1 text-sm text-blue-100 hover:text-white">6.2 Création et Gestion</a></li>
+                            <li><a href="module6.html#6.3" class="block p-1 text-sm text-blue-100 hover:text-white">6.3 Connexion des Conteneurs</a></li>
+                            <li><a href="module6.html#6.4" class="block p-1 text-sm text-blue-100 hover:text-white">6.4 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Module 7 -->
+                    <li class="space-y-1">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
+                            <a href="module7.html" class="flex-grow">Module 7 - Docker Compose</a>
+                            <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <ul id="module7-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module7.html#7.1" class="block p-1 text-sm text-blue-100 hover:text-white">7.1 Introduction à Docker Compose</a></li>
+                            <li><a href="module7.html#7.2" class="block p-1 text-sm text-blue-100 hover:text-white">7.2 Démarrer et Arrêter des Services</a></li>
+                            <li><a href="module7.html#7.3" class="block p-1 text-sm text-blue-100 hover:text-white">7.3 Travail Pratique</a></li>
+                        </ul>
+                    </li>
+                    <!-- Cheatsheet -->
+                    <li>
+                        <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
+                            Cheatsheet Docker
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="ml-64 flex-1 p-8 overflow-y-auto">
+            <div class="mx-auto">
+                <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
+                    <h1 id="4.1" class="text-3xl font-bold text-gray-800 mb-6">4.1 Prérequis pour la Création d'Images Personnalisées</h1>
+                    
+                    <!-- Prérequis -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-2">Prérequis</h2>
+                        <p class="text-blue-700 mb-2">Pour suivre ce module efficacement, vous devez avoir :</p>
+                        <ul class="list-disc list-inside text-blue-600">
+                            <li>Une compréhension des concepts de base de Docker</li>
+                            <li>Docker installé et configuré sur votre système</li>
+                            <li>Des connaissances de base en ligne de commande</li>
+                            <li>Une familiarité avec les commandes Docker de base</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">À la fin de ce module, vous serez capable de :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Comprendre l'importance des images personnalisées</li>
+                            <li>Maîtriser la création de Dockerfiles</li>
+                            <li>Optimiser vos images Docker</li>
+                            <li>Gérer efficacement les tags et la distribution d'images</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-8 border-t border-gray-200">
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.1.1 Environnement de Développement</h2>
+                            <p class="text-gray-600 mb-4">
+                                Pour créer des images Docker personnalisées, vous aurez besoin d'un environnement de développement approprié. Voici les éléments essentiels :
+                            </p>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><strong>Éditeur de texte</strong> : Pour créer et modifier les Dockerfiles</li>
+                                    <li><strong>Terminal</strong> : Pour exécuter les commandes Docker</li>
+                                    <li><strong>Git</strong> : Pour le contrôle de version de vos Dockerfiles</li>
+                                    <li><strong>Compte Docker Hub</strong> : Pour partager vos images</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.1.2 Connaissances Requises</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Concepts Docker</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Images et conteneurs Docker</li>
+                                        <li>Commandes Docker de base</li>
+                                        <li>Gestion des volumes et ports</li>
+                                        <li>Networking Docker</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Compétences Techniques</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Ligne de commande Linux/Unix</li>
+                                        <li>Notions de scripting shell</li>
+                                        <li>Compréhension des variables d'environnement</li>
+                                        <li>Bases de la gestion de paquets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.1.3 Outils Recommandés</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Éditeurs de Texte</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Visual Studio Code avec l'extension Docker</li>
+                                        <li>Sublime Text avec syntax highlighting pour Docker</li>
+                                        <li>Atom avec les plugins Docker</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Outils CLI</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Docker CLI</li>
+                                        <li>Docker Compose</li>
+                                        <li>hadolint (linter Dockerfile)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Environnement :</strong> Assurez-vous d'avoir tous les outils nécessaires installés et configurés.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Connaissances :</strong> Maîtrisez les concepts de base avant de vous lancer dans la création d'images personnalisées.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Outils :</strong> Choisissez des outils adaptés à votre workflow et qui facilitent le développement.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Préparation :</strong> Une bonne préparation est essentielle pour créer des images Docker efficaces et maintenables.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.2" class="text-3xl font-bold text-gray-800 mb-6">4.2 Pourquoi Créer des Images Docker Personnalisées ?</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez comprendre :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Les avantages des images personnalisées</li>
+                            <li>Les cas d'usage courants</li>
+                            <li>Les bonnes pratiques de personnalisation</li>
+                            <li>L'importance de la standardisation</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.2.1 Avantages des Images Personnalisées</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Contrôle Total</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Maîtrise complète du contenu de l'image</li>
+                                        <li>Choix précis des versions des dépendances</li>
+                                        <li>Configuration personnalisée de l'environnement</li>
+                                        <li>Optimisation des performances</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Sécurité Renforcée</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Contrôle des vulnérabilités</li>
+                                        <li>Mise à jour facilitée des composants</li>
+                                        <li>Réduction de la surface d'attaque</li>
+                                        <li>Conformité aux politiques de sécurité</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.2.2 Cas d'Usage Courants</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Applications Spécifiques</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Applications métier personnalisées</li>
+                                        <li>Microservices avec des dépendances spécifiques</li>
+                                        <li>Outils internes d'entreprise</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Environnements de Développement</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Images de développement standardisées</li>
+                                        <li>Environnements de test reproductibles</li>
+                                        <li>Images de CI/CD personnalisées</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.2.3 Bonnes Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Conception</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser des images de base officielles</li>
+                                        <li>Minimiser le nombre de couches</li>
+                                        <li>Optimiser la taille des images</li>
+                                        <li>Documenter les modifications</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Maintenance</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Mettre à jour régulièrement les images</li>
+                                        <li>Automatiser les builds</li>
+                                        <li>Tester systématiquement les nouvelles versions</li>
+                                        <li>Maintenir une documentation à jour</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.2.4 Standardisation</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <p class="text-gray-600 mb-4">
+                                    La standardisation des images Docker personnalisées apporte plusieurs avantages :
+                                </p>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li>Cohérence entre les environnements</li>
+                                    <li>Facilité de maintenance</li>
+                                    <li>Réduction des erreurs de configuration</li>
+                                    <li>Amélioration de la collaboration</li>
+                                    <li>Simplification du déploiement</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Contrôle :</strong> Les images personnalisées offrent une maîtrise totale de l'environnement.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> La personnalisation permet de renforcer la sécurité et la conformité.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Efficacité :</strong> Les images sur mesure optimisent les performances et la maintenance.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Standardisation :</strong> La création d'images personnalisées facilite la standardisation des environnements.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.3" class="text-3xl font-bold text-gray-800 mb-6">4.3 Introduction au Dockerfile</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Ce qu'est un Dockerfile et son rôle</li>
+                            <li>La syntaxe de base d'un Dockerfile</li>
+                            <li>Les instructions principales</li>
+                            <li>Les bonnes pratiques d'écriture</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.3.1 Qu'est-ce qu'un Dockerfile ?</h2>
+                            <p class="text-gray-600 mb-4">
+                                Un Dockerfile est un fichier texte qui contient toutes les instructions nécessaires pour créer une image Docker. C'est comme une recette de cuisine qui détaille étape par étape la construction de votre image.
+                            </p>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-2">Caractéristiques Principales</h3>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li>Format texte simple</li>
+                                    <li>Instructions exécutées séquentiellement</li>
+                                    <li>Chaque instruction crée une nouvelle couche</li>
+                                    <li>Automatisation du processus de build</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.3.2 Instructions de Base</h2>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Exemple de Dockerfile basique
+FROM ubuntu:20.04
+LABEL maintainer="votre@email.com"
+RUN apt-get update && apt-get install -y nginx
+COPY ./app /var/www/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</pre>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Instructions Principales</h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">FROM</code> : Spécifie l'image de base</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">LABEL</code> : Ajoute des métadonnées</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">RUN</code> : Exécute des commandes</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">COPY</code> : Copie des fichiers</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">ADD</code> : Copie des fichiers avec fonctionnalités supplémentaires</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">EXPOSE</code> : Indique les ports à exposer</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">ENV</code> : Définit des variables d'environnement</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">CMD</code> : Commande par défaut</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">ENTRYPOINT</code> : Point d'entrée de l'application</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.3.3 Différence entre RUN, CMD et ENTRYPOINT</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">RUN</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Exécute des commandes pendant la construction de l'image</li>
+                                        <li>Crée une nouvelle couche dans l'image</li>
+                                        <li>Utilisé pour installer des packages, créer des fichiers, etc.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">CMD</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Définit la commande par défaut à l'exécution du conteneur</li>
+                                        <li>Peut être remplacée lors du lancement du conteneur</li>
+                                        <li>Un seul CMD effectif par Dockerfile</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">ENTRYPOINT</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Configure le conteneur comme un exécutable</li>
+                                        <li>Les arguments CMD sont passés à l'ENTRYPOINT</li>
+                                        <li>Plus difficile à remplacer que CMD</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.3.4 Bonnes Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Organisation</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Une instruction par ligne pour la lisibilité</li>
+                                        <li>Grouper les instructions similaires</li>
+                                        <li>Utiliser des commentaires pour documenter</li>
+                                        <li>Suivre un ordre logique d'installation</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Optimisation</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Minimiser le nombre de couches</li>
+                                        <li>Nettoyer les caches après installation</li>
+                                        <li>Utiliser le multi-stage build quand possible</li>
+                                        <li>Éviter les fichiers inutiles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Dockerfile :</strong> Un fichier texte contenant les instructions pour construire une image Docker.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Instructions :</strong> FROM, RUN, COPY, CMD sont les instructions les plus courantes.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Différences :</strong> RUN (build-time), CMD (runtime), ENTRYPOINT (runtime fixe).
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Pratiques :</strong> Organisation claire, optimisation des couches, documentation appropriée.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.4" class="text-3xl font-bold text-gray-800 mb-6">4.4 Construction d'Images Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Construire une image à partir d'un Dockerfile</li>
+                            <li>Utiliser les options de construction avancées</li>
+                            <li>Gérer le cache de construction</li>
+                            <li>Déboguer le processus de construction</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.4.1 Commande docker build</h2>
+                            <p class="text-gray-600 mb-4">
+                                La commande <code>docker build</code> est utilisée pour construire une image à partir d'un Dockerfile. Elle lit les instructions du Dockerfile et les exécute séquentiellement.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Construction basique
+docker build -t mon_image:latest .
+
+# Construction avec un Dockerfile spécifique
+docker build -f MonDockerfile -t mon_image:v1 .
+
+# Construction sans cache
+docker build --no-cache -t mon_image .</pre>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Options Principales</h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">-t</code> : Tag de l'image</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">-f</code> : Spécifie le Dockerfile</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">--no-cache</code> : Désactive le cache</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">--pull</code> : Force le téléchargement des images de base</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.4.2 Contexte de Construction</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Qu'est-ce que le Contexte ?</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Le contexte de construction est l'ensemble des fichiers situés dans le répertoire spécifié lors de la commande build. Ces fichiers sont envoyés au daemon Docker.
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Tous les fichiers du contexte sont envoyés</li>
+                                        <li>Utilisez .dockerignore pour exclure des fichiers</li>
+                                        <li>Le contexte impacte la performance du build</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple de .dockerignore</h3>
+                                    <pre class="bg-gray-100 p-3 rounded font-mono text-sm">
+# Fichiers de développement
+node_modules
+npm-debug.log
+.git
+.env
+
+# Fichiers de build
+dist
+build
+*.exe
+
+# Fichiers temporaires
+*.tmp
+*.log
+.DS_Store</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.4.3 Gestion du Cache</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Fonctionnement du Cache</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Chaque instruction crée une couche cachée</li>
+                                        <li>Le cache est réutilisé si l'instruction n'a pas changé</li>
+                                        <li>Une modification invalide le cache pour les instructions suivantes</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Optimisation du Cache</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Placer les instructions qui changent peu en premier</li>
+                                        <li>Grouper les commandes RUN similaires</li>
+                                        <li>Utiliser des versions spécifiques pour les dépendances</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.4.4 Débogage de la Construction</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Options de Débogage</h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">--progress=plain</code> : Affiche les détails de construction</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">--no-cache</code> : Force la reconstruction complète</li>
+                                        <li><code class="bg-gray-100 px-2 py-1 rounded">--quiet</code> : Réduit les logs au minimum</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Erreurs Courantes</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Contexte de build incorrect</li>
+                                        <li>Permissions insuffisantes</li>
+                                        <li>Dépendances manquantes</li>
+                                        <li>Problèmes de réseau</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Construction :</strong> Utilisez <code>docker build</code> avec les options appropriées pour construire vos images.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Contexte :</strong> Gérez efficacement le contexte de build avec .dockerignore.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Cache :</strong> Optimisez l'utilisation du cache pour des builds plus rapides.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Débogage :</strong> Utilisez les options de débogage pour résoudre les problèmes de construction.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.5" class="text-3xl font-bold text-gray-800 mb-6">4.5 Optimisation des Images Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Réduire la taille des images Docker</li>
+                            <li>Utiliser le multi-stage build</li>
+                            <li>Optimiser les couches Docker</li>
+                            <li>Améliorer la sécurité des images</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.5.1 Réduction de la Taille des Images</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Techniques de Base</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser des images de base légères (alpine)</li>
+                                        <li>Nettoyer les caches des gestionnaires de paquets</li>
+                                        <li>Supprimer les fichiers temporaires</li>
+                                        <li>Combiner les commandes RUN</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Exemple d'optimisation
+FROM alpine:3.14
+
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    && pip3 install --no-cache-dir \
+    flask \
+    requests \
+    && rm -rf /var/cache/apk/*</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.5.2 Multi-stage Build</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Avantages</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Séparation des environnements de build et de production</li>
+                                        <li>Réduction significative de la taille finale</li>
+                                        <li>Meilleure sécurité (moins de vulnérabilités)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Exemple de multi-stage build
+FROM node:16 AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/app.js ./
+
+# Créer un utilisateur non-root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+EXPOSE 3000
+CMD ["node", "app.js"]</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.5.3 Optimisation des Couches</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Stratégies</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Ordonner les couches par fréquence de changement</li>
+                                        <li>Regrouper les commandes similaires</li>
+                                        <li>Utiliser le cache de manière efficace</li>
+                                        <li>Minimiser le nombre de couches</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple d'Ordonnancement</h3>
+                                    <ol class="list-decimal list-inside text-gray-600">
+                                        <li>Installation du système et des dépendances</li>
+                                        <li>Configuration globale</li>
+                                        <li>Installation des dépendances applicatives</li>
+                                        <li>Code source de l'application</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.5.4 Sécurité des Images</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Bonnes Pratiques</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser des images officielles et à jour</li>
+                                        <li>Scanner les vulnérabilités</li>
+                                        <li>Éviter d'exécuter les conteneurs en tant que root</li>
+                                        <li>Minimiser les paquets installés</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Exemple de configuration sécurisée
+FROM node:16-alpine
+
+# Créer un utilisateur non-root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Changer le propriétaire des fichiers
+COPY --chown=appuser:appgroup . .
+
+# Utiliser l'utilisateur non-root
+USER appuser
+
+CMD ["npm", "start"]</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.5.5 Outils d'Optimisation</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><code class="bg-gray-100 px-2 py-1 rounded">docker image prune</code> : Nettoie les images inutilisées</li>
+                                    <li><code class="bg-gray-100 px-2 py-1 rounded">docker builder prune</code> : Nettoie le cache de construction</li>
+                                    <li><code class="bg-gray-100 px-2 py-1 rounded">docker history</code> : Analyse la taille des couches</li>
+                                    <li><code class="bg-gray-100 px-2 py-1 rounded">docker scan</code> : Analyse les vulnérabilités</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Taille :</strong> Utilisez des images de base légères et nettoyez les fichiers inutiles.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Multi-stage :</strong> Séparez les environnements de build et de production pour des images plus légères.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Couches :</strong> Optimisez l'ordre et le nombre des couches pour une meilleure performance.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> Suivez les bonnes pratiques de sécurité pour des images robustes.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.6" class="text-3xl font-bold text-gray-800 mb-6">4.6 Gestion des Tags Docker</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Comprendre le système de tags Docker</li>
+                            <li>Appliquer les bonnes pratiques de versioning</li>
+                            <li>Gérer efficacement les tags d'images</li>
+                            <li>Mettre en place une stratégie de tagging</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.6.1 Comprendre les Tags</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Anatomie d'un Tag</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Un tag Docker complet se compose de plusieurs éléments :
+                                    </p>
+                                    <pre class="bg-gray-100 p-3 rounded font-mono text-sm">
+[registry]/[user]/[image]:[tag]
+
+exemple : docker.io/nginx:1.21.3-alpine</pre>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Types de Tags Courants</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>latest : dernière version</li>
+                                        <li>version spécifique : 1.0.0</li>
+                                        <li>version majeure : 1</li>
+                                        <li>version mineure : 1.0</li>
+                                        <li>variante : alpine, slim</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.6.2 Commandes de Gestion des Tags</h2>
+                            <div class="space-y-4">
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Tagger une image existante
+docker tag mon_image:latest mon_image:1.0.0
+
+# Tagger pour un registre distant
+docker tag mon_image:latest registry.example.com/mon_image:1.0.0
+
+# Supprimer un tag
+docker rmi mon_image:1.0.0
+
+# Lister les tags d'une image
+docker images mon_image</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.6.3 Stratégies de Versioning</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Semantic Versioning (SemVer)</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Format : MAJOR.MINOR.PATCH
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>MAJOR : changements incompatibles</li>
+                                        <li>MINOR : nouvelles fonctionnalités compatibles</li>
+                                        <li>PATCH : corrections de bugs</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Autres Stratégies</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Date (YYYYMMDD)</li>
+                                        <li>Git commit SHA</li>
+                                        <li>Environnement (dev, staging, prod)</li>
+                                        <li>Build number (CI/CD)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.6.4 Bonnes Pratiques</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Recommandations Générales</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Éviter d'utiliser uniquement latest</li>
+                                        <li>Utiliser des tags spécifiques en production</li>
+                                        <li>Documenter la stratégie de tagging</li>
+                                        <li>Automatiser le processus de tagging</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple de Stratégie</h3>
+                                    <pre class="bg-gray-100 p-3 rounded font-mono text-sm">
+# Image de développement
+mon_app:dev-${GIT_BRANCH}
+
+# Image de test
+mon_app:${VERSION}-rc${BUILD_NUMBER}
+
+# Image de production
+mon_app:${VERSION}
+mon_app:latest</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.6.5 Automatisation</h2>
+                            <div class="bg-white shadow rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-2">Outils et Scripts</h3>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li>Scripts de CI/CD pour le tagging automatique</li>
+                                    <li>Hooks Git pour la validation des tags</li>
+                                    <li>Outils de gestion de versions</li>
+                                    <li>Registres Docker avec politiques de tags</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Structure :</strong> Un tag complet inclut le registre, l'utilisateur, l'image et la version.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Versioning :</strong> Utilisez une stratégie cohérente comme SemVer pour vos tags.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Pratiques :</strong> Évitez de vous fier uniquement au tag latest, surtout en production.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Automatisation :</strong> Mettez en place des processus automatisés pour la gestion des tags.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.7" class="text-3xl font-bold text-gray-800 mb-6">4.7 Distribution d'Images</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
+                        <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre à :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Distribuer des images Docker</li>
+                            <li>Utiliser des registres Docker</li>
+                            <li>Gérer les politiques de distribution</li>
+                            <li>Optimiser les performances de distribution</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.7.1 Utilisation des Registres</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Registres Docker</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Les registres Docker sont des référentiels de stockage pour les images Docker. Voici comment les utiliser :
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>docker.io : Registre officiel</li>
+                                        <li>Docker Hub : Registre public</li>
+                                        <li>Registres privés</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Commandes de Gestion des Registres</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>docker login : Se connecter à un registre</li>
+                                        <li>docker logout : Se déconnecter d'un registre</li>
+                                        <li>docker pull : Télécharger une image</li>
+                                        <li>docker push : Envoyer une image</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.7.2 Gestion des Politiques de Distribution</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Bonnes Pratiques</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser des registres privés pour des images sensibles</li>
+                                        <li>Configurer des politiques de sécurité</li>
+                                        <li>Optimiser les performances de distribution</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple de Politique</h3>
+                                    <pre class="bg-gray-100 p-3 rounded font-mono text-sm">
+# Politique de distribution
+FROM node:16-alpine
+
+# Télécharger l'image
+RUN docker pull node:16-alpine
+
+# Construire l'image
+RUN docker build -t node:16-alpine .
+
+# Pousser l'image
+RUN docker push node:16-alpine</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.7.3 Optimisation des Performances</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Optimisation</h3>
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        <li>Utiliser des registres privés pour des images sensibles</li>
+                                        <li>Configurer des politiques de sécurité</li>
+                                        <li>Optimiser les performances de distribution</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Exemple de Politique</h3>
+                                    <pre class="bg-gray-100 p-3 rounded font-mono text-sm">
+# Politique de distribution
+FROM node:16-alpine
+
+# Télécharger l'image
+RUN docker pull node:16-alpine
+
+# Construire l'image
+RUN docker build -t node:16-alpine .
+
+# Pousser l'image
+RUN docker push node:16-alpine</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Distribution :</strong> Utilisez des registres Docker pour distribuer vos images.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Politiques :</strong> Mettez en place des politiques de distribution pour optimiser les performances.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Sécurité :</strong> Assurez la sécurité des images distribuées.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Optimisation :</strong> Optimisez les performances de distribution.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-t border-gray-200">
+
+                    <h1 id="4.8" class="text-3xl font-bold text-gray-800 mb-6">4.8 Travail Pratique : Création et Distribution d'une Image Personnalisée</h1>
+                    
+                    <!-- Objectifs -->
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs du TP</h2>
+                        <p class="text-green-700 mb-2">Dans ce travail pratique, vous allez :</p>
+                        <ul class="list-disc list-inside text-green-600">
+                            <li>Créer une image Docker personnalisée</li>
+                            <li>Optimiser l'image avec multi-stage build</li>
+                            <li>Gérer les tags de manière appropriée</li>
+                            <li>Distribuer l'image sur Docker Hub</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenu principal -->
+                    <section class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.1 Préparation</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Configuration Initiale</h3>
+                                    <ol class="list-decimal list-inside text-gray-600">
+                                        <li>Créez un compte sur Docker Hub si ce n'est pas déjà fait</li>
+                                        <li>Créez un nouveau répertoire pour le projet</li>
+                                        <li>Initialisez un dépôt Git</li>
+                                        <li>Créez un fichier .dockerignore</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+mkdir mon-app-docker
+cd mon-app-docker
+git init
+echo "node_modules/" > .dockerignore
+echo "npm-debug.log" >> .dockerignore</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.2 Création de l'Application</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Application Express Simple</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Créez une application Express.js simple qui servira de base pour notre image Docker.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Initialisation du projet
+npm init -y
+npm install express
+
+# Création du fichier app.js
+cat > app.js << EOL
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Hello Docker!',
+        timestamp: new Date()
+    });
+});
+
+app.listen(port, () => {
+    console.log(\`App running on port \${port}\`);
+});
+EOL</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.3 Création du Dockerfile</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Multi-stage Dockerfile</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Créez un Dockerfile optimisé utilisant le multi-stage build.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Dockerfile
+FROM node:16 AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/app.js ./
+
+# Créer un utilisateur non-root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+EXPOSE 3000
+CMD ["node", "app.js"]</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.4 Construction et Test</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Commandes de Build et Test</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Construisez et testez votre image localement.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Construction de l'image
+docker build -t mon-app:1.0.0 .
+
+# Test local
+docker run -d -p 3000:3000 --name test-app mon-app:1.0.0
+
+# Vérification
+curl http://localhost:3000</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.5 Distribution</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Publication sur Docker Hub</h3>
+                                    <p class="text-gray-600 mb-4">
+                                        Publiez votre image sur Docker Hub avec les tags appropriés.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Connexion à Docker Hub
+docker login
+
+# Tag de l'image pour Docker Hub
+docker tag mon-app:1.0.0 votre-username/mon-app:1.0.0
+docker tag mon-app:1.0.0 votre-username/mon-app:latest
+
+# Push des images
+docker push votre-username/mon-app:1.0.0
+docker push votre-username/mon-app:latest</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">4.8.6 Vérification et Nettoyage</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white shadow rounded-lg p-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Tests Finaux</h3>
+                                    <ol class="list-decimal list-inside text-gray-600">
+                                        <li>Supprimez les images locales</li>
+                                        <li>Téléchargez l'image depuis Docker Hub</li>
+                                        <li>Testez l'image téléchargée</li>
+                                        <li>Nettoyez votre environnement</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                    <pre class="font-mono text-sm">
+# Nettoyage local
+docker stop test-app
+docker rm test-app
+docker rmi mon-app:1.0.0
+docker rmi votre-username/mon-app:1.0.0
+docker rmi votre-username/mon-app:latest
+
+# Test de l'image publiée
+docker pull votre-username/mon-app:latest
+docker run -d -p 3000:3000 votre-username/mon-app:latest</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résumé -->
+                        <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés du TP</h2>
+                            <ul class="space-y-4 text-gray-600">
+                                <li>
+                                    <strong class="text-gray-800">Création :</strong> Mise en pratique des concepts de création d'images Docker.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Optimisation :</strong> Utilisation du multi-stage build et des bonnes pratiques.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Tags :</strong> Application d'une stratégie de tagging cohérente.
+                                </li>
+                                <li>
+                                    <strong class="text-gray-800">Distribution :</strong> Publication et vérification sur un registre public.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/nav.js"></script>
+</body>
+</html> 
