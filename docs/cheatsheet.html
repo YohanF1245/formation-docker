@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Docker - Cheatsheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-800 text-white py-4 flex flex-col">
+            <div class="px-6 mb-8">
+                <h1 class="text-2xl font-bold flex items-center">
+                    <i class="fab fa-docker mr-3"></i>
+                    Formation Docker
+                </h1>
+            </div>
+            <nav class="flex-1 overflow-y-auto">
+                <ul class="px-4">
+                    <li class="mb-4">
+                        <a href="index.html" class="flex items-center text-gray-300 hover:text-white transition-colors duration-150">
+                            <i class="fas fa-home mr-3"></i>
+                            Accueil
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module1.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-book mr-3"></i>
+                            Module 1 - Introduction
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module2.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-download mr-3"></i>
+                            Module 2 - Installation
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module3.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-box mr-3"></i>
+                            Module 3 - Conteneurs et Images
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module4.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-cogs mr-3"></i>
+                            Module 4 - Images Avancées
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module5.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-hdd mr-3"></i>
+                            Module 5 - Stockage
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module6.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-network-wired mr-3"></i>
+                            Module 6 - Réseautage
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="module7.html" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-layer-group mr-3"></i>
+                            Module 7 - Docker Compose
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="cheatsheet.html" class="flex items-center text-white bg-blue-900 rounded-lg p-2">
+                            <i class="fas fa-list-alt mr-3"></i>
+                            Cheatsheet
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="container mx-auto px-6 py-8">
+                <div class="mx-auto">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-8">Docker Cheatsheet</h1>
+
+                    <!-- Images Docker -->
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Images Docker</h2>
+                        <div class="overflow-x-auto bg-white rounded-lg shadow">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commande</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker images</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Liste toutes les images Docker</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker images</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker pull &lt;image&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Télécharge une image depuis Docker Hub</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker pull nginx:latest</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker rmi &lt;image&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Supprime une image</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker rmi nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker build -t &lt;nom&gt;:&lt;tag&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Construit une image à partir d'un Dockerfile</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker build -t mon-app:1.0 .</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Conteneurs Docker -->
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Conteneurs Docker</h2>
+                        
+                        <!-- Cycle de Vie -->
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Cycle de Vie</h3>
+                        <div class="overflow-x-auto bg-white rounded-lg shadow mb-8">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commande</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker run &lt;image&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Crée et démarre un conteneur</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker run -d -p 80:80 nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker start &lt;conteneur&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Démarre un conteneur arrêté</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker start mon-nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker stop &lt;conteneur&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Arrête un conteneur</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker stop mon-nginx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestion et Surveillance -->
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestion et Surveillance</h3>
+                        <div class="overflow-x-auto bg-white rounded-lg shadow">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commande</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker ps</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Liste les conteneurs actifs</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker ps</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker logs &lt;conteneur&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Affiche les logs</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker logs mon-nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker exec -it &lt;conteneur&gt; &lt;cmd&gt;</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Exécute une commande</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker exec -it mon-nginx bash</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Docker Compose -->
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Docker Compose</h2>
+                        <div class="overflow-x-auto bg-white rounded-lg shadow">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commande</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker-compose up</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Démarre les services</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker-compose up -d</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker-compose down</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Arrête les services</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker-compose down</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">docker-compose logs</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Affiche les logs</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker-compose logs api</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Options Courantes -->
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Options Courantes pour docker run</h2>
+                        <div class="overflow-x-auto bg-white rounded-lg shadow">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Option</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">-d</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Mode détaché</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker run -d nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">-p</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Mapping de ports</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker run -p 8080:80 nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">-v</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Monte un volume</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker run -v /data:/app nginx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-blue-600">--name</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Nom du conteneur</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-green-600">docker run --name mon-nginx nginx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/nav.js"></script>
+</body>
+</html>
