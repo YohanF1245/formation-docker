@@ -45,10 +45,10 @@
                     <!-- Module 1 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
-                            <a href="module1.html" class="flex-grow">
+                            <span class="flex-grow">
                                 <i class="fas fa-book mr-2"></i>
                                 Module 1 - Introduction
-                            </a>
+                            </span>
                             <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
@@ -61,19 +61,19 @@
                     </li>
                     <!-- Module 2 -->
                     <li class="space-y-1">
-                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
-                            <a href="module2.html" class="flex-grow">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
+                            <span class="flex-grow">
                                 <i class="fas fa-download mr-2"></i>
                                 Module 2 - Installation
-                            </a>
+                            </span>
                             <svg class="w-4 h-4 accordion-icon transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
                         <ul id="module2-content" class="ml-4 space-y-1">
-                            <li><a href="module2.html#windows" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Windows</a></li>
-                            <li><a href="module2.html#macos" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur MacOS</a></li>
-                            <li><a href="module2.html#linux" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Linux</a></li>
+                            <li><a href="#windows" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Windows</a></li>
+                            <li><a href="#macos" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur MacOS</a></li>
+                            <li><a href="#linux" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Linux</a></li>
                         </ul>
                     </li>
                     <!-- Module 3 -->
@@ -368,33 +368,47 @@
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
-        function toggleMenu() {
-            sidebar.classList.toggle('open');
-            if (sidebar.classList.contains('open')) {
-                overlay.classList.add('opacity-50', 'pointer-events-auto');
-            } else {
-                overlay.classList.remove('opacity-50', 'pointer-events-auto');
-            }
-        }
-
         menuButton.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
-        // Gestion des accordéons
-        document.querySelectorAll('[data-accordion-toggle]').forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                const content = document.getElementById(toggle.getAttribute('data-accordion-toggle'));
-                content.classList.toggle('hidden');
-                toggle.querySelector('.accordion-icon').classList.toggle('rotate-90');
-            });
-        });
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('opacity-50');
+            overlay.classList.toggle('pointer-events-none');
+        }
 
-        // Fermer le menu sur resize
+        // Fermer le menu si la fenêtre est redimensionnée au-dessus de 1024px
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 1024) {
                 sidebar.classList.remove('open');
-                overlay.classList.remove('opacity-50', 'pointer-events-auto');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
             }
+        });
+
+        // Accordéon
+        document.querySelectorAll('[data-accordion-toggle]').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                const targetId = toggle.getAttribute('data-accordion-toggle');
+                const target = document.getElementById(targetId);
+                const icon = toggle.querySelector('.accordion-icon');
+                
+                // Ferme tous les autres accordéons
+                document.querySelectorAll('[id$="-content"]').forEach(content => {
+                    if (content.id !== targetId) {
+                        content.classList.add('hidden');
+                        const otherIcon = document.querySelector(`[data-accordion-toggle="${content.id}"] .accordion-icon`);
+                        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle l'accordéon actuel
+                target.classList.toggle('hidden');
+                if (!target.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(90deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
         });
     </script>
 </body>
