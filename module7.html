@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation Docker - Module 6 : Réseautage dans Docker</title>
+    <title>Formation Docker - Module 7 : Docker Compose et Orchestration</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="./css/style.css" rel="stylesheet">
@@ -123,9 +123,9 @@
                             <li><a href="module5.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 6 (actif) -->
+                    <!-- Module 6 -->
                     <li class="space-y-1">
-                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
+                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
                             <a href="module6.html" class="flex-grow">
                                 <i class="fas fa-network-wired mr-2"></i>
                                 Module 6 - Réseautage
@@ -134,16 +134,16 @@
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="module6-content" class="ml-4 space-y-1">
-                            <li><a href="#concepts" class="block p-1 text-sm text-blue-100 hover:text-white">Concepts de Base</a></li>
-                            <li><a href="#gestion" class="block p-1 text-sm text-blue-100 hover:text-white">Création et Gestion</a></li>
-                            <li><a href="#connexion" class="block p-1 text-sm text-blue-100 hover:text-white">Connexion des Conteneurs</a></li>
-                            <li><a href="#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        <ul id="module6-content" class="ml-4 space-y-1 hidden">
+                            <li><a href="module6.html#concepts" class="block p-1 text-sm text-blue-100 hover:text-white">Concepts de Base</a></li>
+                            <li><a href="module6.html#gestion" class="block p-1 text-sm text-blue-100 hover:text-white">Création et Gestion</a></li>
+                            <li><a href="module6.html#connexion" class="block p-1 text-sm text-blue-100 hover:text-white">Connexion des Conteneurs</a></li>
+                            <li><a href="module6.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 7 -->
+                    <!-- Module 7 (actif) -->
                     <li class="space-y-1">
-                        <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
+                        <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
                             <a href="module7.html" class="flex-grow">
                                 <i class="fas fa-layer-group mr-2"></i>
                                 Module 7 - Docker Compose
@@ -152,10 +152,10 @@
                                 <path fill-rule="evenodd" d="M7.293 4.707a1 1 0 011.414 0L14 10l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="module7-content" class="ml-4 space-y-1 hidden">
-                            <li><a href="module7.html#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker Compose</a></li>
-                            <li><a href="module7.html#services" class="block p-1 text-sm text-blue-100 hover:text-white">Démarrer et Arrêter des Services</a></li>
-                            <li><a href="module7.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                        <ul id="module7-content" class="ml-4 space-y-1">
+                            <li><a href="#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker Compose</a></li>
+                            <li><a href="#services" class="block p-1 text-sm text-blue-100 hover:text-white">Démarrer et Arrêter des Services</a></li>
+                            <li><a href="#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
                     <!-- Cheatsheet -->
@@ -173,73 +173,61 @@
         <main class="flex-1 overflow-y-auto">
             <div class="container mx-auto px-6 py-8">
                 <div class="mx-auto">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-8">Module 6 : Réseautage dans Docker</h1>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-8">Docker Compose et Orchestration</h1>
 
                     <!-- Section Introduction -->
                     <section class="space-y-8">
-                        <h1 id="introduction" class="text-3xl font-bold text-gray-800 mb-6">Introduction au Réseautage Docker</h1>
+                        <h1 id="introduction" class="text-3xl font-bold text-gray-800 mb-6">Introduction à Docker Compose</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                             <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Les concepts fondamentaux du réseautage Docker</li>
-                                <li>Les différents types de réseaux disponibles</li>
-                                <li>Comment les conteneurs communiquent entre eux</li>
-                                <li>Les bonnes pratiques en matière de réseautage</li>
+                                <li>Comprendre le rôle de Docker Compose</li>
+                                <li>Les avantages de l'orchestration de conteneurs</li>
+                                <li>La structure des fichiers docker-compose.yml</li>
+                                <li>Les cas d'usage typiques</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Architecture Réseau de Docker</h3>
+                                <h3 class="text-xl font-semibold mb-4">Qu'est-ce que Docker Compose ?</h3>
                                 <p class="text-gray-600 mb-4">
-                                    Docker utilise une architecture réseau flexible qui permet aux conteneurs de communiquer entre eux et avec le monde extérieur. Les principaux composants sont :
+                                    Docker Compose est un outil qui permet de définir et de gérer des applications multi-conteneurs. Il utilise un fichier YAML pour configurer les services, réseaux et volumes de l'application.
                                 </p>
                                 <ul class="list-disc list-inside text-gray-600">
-                                    <li>Le réseau bridge par défaut</li>
-                                    <li>Les réseaux définis par l'utilisateur</li>
-                                    <li>Les drivers réseau</li>
-                                    <li>Les interfaces réseau des conteneurs</li>
+                                    <li>Définition déclarative des services</li>
+                                    <li>Gestion simplifiée des dépendances</li>
+                                    <li>Configuration centralisée</li>
+                                    <li>Environnements de développement reproductibles</li>
                                 </ul>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Types de Réseaux Docker</h3>
-                                <div class="overflow-x-auto">
-                                    <table class="min-w-full bg-white">
-                                        <thead>
-                                            <tr>
-                                                <th class="border px-4 py-2">Type</th>
-                                                <th class="border px-4 py-2">Description</th>
-                                                <th class="border px-4 py-2">Cas d'Usage</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="border px-4 py-2">bridge</td>
-                                                <td class="border px-4 py-2">Réseau isolé sur l'hôte</td>
-                                                <td class="border px-4 py-2">Applications sur un seul hôte</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border px-4 py-2">host</td>
-                                                <td class="border px-4 py-2">Utilise le réseau de l'hôte</td>
-                                                <td class="border px-4 py-2">Performance maximale</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border px-4 py-2">none</td>
-                                                <td class="border px-4 py-2">Pas de connectivité réseau</td>
-                                                <td class="border px-4 py-2">Isolation complète</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border px-4 py-2">overlay</td>
-                                                <td class="border px-4 py-2">Réseau multi-hôtes</td>
-                                                <td class="border px-4 py-2">Applications distribuées</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <h3 class="text-xl font-semibold mb-4">Structure de Base</h3>
+                                <div class="bg-gray-800 text-white p-4 rounded">
+                                    <pre class="font-mono text-sm">
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      
+volumes:
+  db_data:
+
+networks:
+  app_network:</pre>
                                 </div>
                             </div>
                         </div>
@@ -248,67 +236,77 @@
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Architecture :</strong> Flexible et modulaire</li>
-                                <li><strong>Types :</strong> Plusieurs options selon les besoins</li>
-                                <li><strong>Isolation :</strong> Sécurité et séparation des préoccupations</li>
-                                <li><strong>Performance :</strong> Options optimisées selon les cas d'usage</li>
+                                <li><strong>Configuration :</strong> Format YAML simple et lisible</li>
+                                <li><strong>Services :</strong> Définition des conteneurs et leurs relations</li>
+                                <li><strong>Environnement :</strong> Gestion des variables et des dépendances</li>
+                                <li><strong>Scalabilité :</strong> Facilité de mise à l'échelle</li>
                             </ul>
                         </div>
                     </section>
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <!-- Section Bridge -->
+                    <!-- Section Configuration -->
                     <section class="space-y-8">
-                        <h1 id="bridge" class="text-3xl font-bold text-gray-800 mb-6">Le Réseau Bridge par Défaut</h1>
+                        <h1 id="configuration" class="text-3xl font-bold text-gray-800 mb-6">Configuration des Services</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                             <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Le fonctionnement du réseau bridge par défaut</li>
-                                <li>Comment les conteneurs communiquent sur ce réseau</li>
-                                <li>Les limitations du réseau bridge par défaut</li>
-                                <li>Les cas d'usage appropriés</li>
+                                <li>Définir des services dans docker-compose.yml</li>
+                                <li>Configurer les options des services</li>
+                                <li>Gérer les dépendances entre services</li>
+                                <li>Utiliser les variables d'environnement</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Caractéristiques du Bridge par Défaut</h3>
+                                <h3 class="text-xl font-semibold mb-4">Options de Configuration</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Inspecter le réseau bridge par défaut
-docker network inspect bridge
-
-# Lister les réseaux
-docker network ls</pre>
+services:
+  web:
+    build: ./web
+    image: mon-app:latest
+    container_name: web_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/app
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - frontend
+      - backend</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Communication entre Conteneurs</h3>
+                                <h3 class="text-xl font-semibold mb-4">Gestion des Dépendances</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Créer deux conteneurs sur le réseau bridge
-docker run -d --name web nginx
-docker run -d --name db mysql
-
-# Tester la connectivité
-docker exec web ping db</pre>
+services:
+  web:
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+  
+  db:
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5</pre>
                                 </div>
-                            </div>
-
-                            <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Limitations</h3>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li>Pas de résolution DNS automatique entre conteneurs</li>
-                                    <li>Configuration manuelle des liens nécessaire</li>
-                                    <li>Sécurité limitée</li>
-                                    <li>Pas de contrôle fin sur l'isolation</li>
-                                </ul>
                             </div>
                         </div>
 
@@ -316,72 +314,81 @@ docker exec web ping db</pre>
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Configuration :</strong> Automatique mais basique</li>
-                                <li><strong>Usage :</strong> Développement et tests simples</li>
-                                <li><strong>Limitations :</strong> Fonctionnalités restreintes</li>
-                                <li><strong>Alternative :</strong> Préférer les réseaux définis par l'utilisateur</li>
+                                <li><strong>Options :</strong> Configuration détaillée des services</li>
+                                <li><strong>Dépendances :</strong> Gestion de l'ordre de démarrage</li>
+                                <li><strong>Environnement :</strong> Variables et configurations</li>
+                                <li><strong>Santé :</strong> Surveillance des services</li>
                             </ul>
                         </div>
                     </section>
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <!-- Section Réseaux Utilisateur -->
+                    <!-- Section Volumes et Réseaux -->
                     <section class="space-y-8">
-                        <h1 id="reseaux-utilisateur" class="text-3xl font-bold text-gray-800 mb-6">Les Réseaux Définis par l'Utilisateur</h1>
+                        <h1 id="volumes-reseaux" class="text-3xl font-bold text-gray-800 mb-6">Gestion des Volumes et Réseaux</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                             <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Créer et gérer des réseaux personnalisés</li>
-                                <li>Connecter des conteneurs à des réseaux spécifiques</li>
-                                <li>Configurer la résolution DNS automatique</li>
-                                <li>Isoler les applications avec des réseaux dédiés</li>
+                                <li>Configurer les volumes dans Docker Compose</li>
+                                <li>Gérer les réseaux entre services</li>
+                                <li>Utiliser les drivers de stockage</li>
+                                <li>Optimiser la communication inter-services</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Création et Gestion</h3>
+                                <h3 class="text-xl font-semibold mb-4">Configuration des Volumes</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Créer un réseau personnalisé
-docker network create mon-reseau
-
-# Créer un réseau avec des options spécifiques
-docker network create --driver bridge \
-  --subnet=172.18.0.0/16 \
-  --gateway=172.18.0.1 \
-  mon-reseau-custom</pre>
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /data/mysql
+      o: bind
+  
+services:
+  db:
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+      - type: tmpfs
+        target: /tmp</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Utilisation avec les Conteneurs</h3>
+                                <h3 class="text-xl font-semibold mb-4">Configuration des Réseaux</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Lancer un conteneur sur un réseau spécifique
-docker run -d --name web --network mon-reseau nginx
-
-# Connecter un conteneur existant
-docker network connect mon-reseau db
-
-# Déconnecter un conteneur
-docker network disconnect mon-reseau db</pre>
+networks:
+  frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+  
+  backend:
+    internal: true
+    driver: overlay
+    
+services:
+  web:
+    networks:
+      frontend:
+        ipv4_address: 172.28.1.1
+      backend:
+        aliases:
+          - webapp</pre>
                                 </div>
-                            </div>
-
-                            <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Avantages</h3>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li>Résolution DNS automatique entre conteneurs</li>
-                                    <li>Isolation améliorée</li>
-                                    <li>Configuration réseau flexible</li>
-                                    <li>Meilleure sécurité</li>
-                                </ul>
                             </div>
                         </div>
 
@@ -389,69 +396,71 @@ docker network disconnect mon-reseau db</pre>
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Flexibilité :</strong> Configuration personnalisée selon les besoins</li>
-                                <li><strong>Isolation :</strong> Séparation claire des environnements</li>
-                                <li><strong>DNS :</strong> Résolution automatique des noms</li>
-                                <li><strong>Sécurité :</strong> Contrôle fin des communications</li>
+                                <li><strong>Volumes :</strong> Persistance et partage des données</li>
+                                <li><strong>Réseaux :</strong> Isolation et communication</li>
+                                <li><strong>Drivers :</strong> Flexibilité du stockage</li>
+                                <li><strong>Performance :</strong> Optimisation des ressources</li>
                             </ul>
                         </div>
                     </section>
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <!-- Section 6.4 -->
+                    <!-- Section 7.4 -->
                     <section class="space-y-8">
-                        <h1 id="6.4" class="text-3xl font-bold text-gray-800 mb-6">6.4 Configuration des Ports et Exposition des Services</h1>
+                        <h1 id="7.4" class="text-3xl font-bold text-gray-800 mb-6">7.4 Commandes Docker Compose</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                             <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Exposer des ports de conteneurs</li>
-                                <li>Configurer le mapping de ports</li>
-                                <li>Gérer l'accès aux services</li>
-                                <li>Sécuriser l'exposition des services</li>
+                                <li>Utiliser les commandes de base</li>
+                                <li>Gérer le cycle de vie des services</li>
+                                <li>Surveiller les conteneurs</li>
+                                <li>Déboguer les problèmes courants</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Exposition des Ports</h3>
+                                <h3 class="text-xl font-semibold mb-4">Commandes de Base</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Exposition automatique
-docker run -d -P nginx
+# Démarrer les services
+docker compose up -d
 
-# Mapping de port spécifique
-docker run -d -p 8080:80 nginx
+# Arrêter les services
+docker compose down
 
-# Mapping sur une interface spécifique
-docker run -d -p 127.0.0.1:8080:80 nginx</pre>
+# Voir les logs
+docker compose logs -f
+
+# Lister les services
+docker compose ps
+
+# Exécuter une commande
+docker compose exec web npm test</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Gestion des Ports</h3>
+                                <h3 class="text-xl font-semibold mb-4">Gestion des Services</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Voir les ports mappés
-docker port conteneur-name
+# Reconstruire les images
+docker compose build
 
-# Lister les conteneurs avec leurs ports
-docker ps</pre>
+# Mettre à jour un service
+docker compose up -d --no-deps --build web
+
+# Scaler un service
+docker compose up -d --scale web=3
+
+# Voir les processus
+docker compose top</pre>
                                 </div>
-                            </div>
-
-                            <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Bonnes Pratiques</h3>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li>Exposer uniquement les ports nécessaires</li>
-                                    <li>Utiliser des plages de ports cohérentes</li>
-                                    <li>Documenter les mappings de ports</li>
-                                    <li>Considérer la sécurité réseau</li>
-                                </ul>
                             </div>
                         </div>
 
@@ -459,68 +468,78 @@ docker ps</pre>
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Exposition :</strong> Contrôle fin des ports accessibles</li>
-                                <li><strong>Mapping :</strong> Flexibilité dans la configuration</li>
-                                <li><strong>Sécurité :</strong> Limitation de l'exposition</li>
-                                <li><strong>Documentation :</strong> Importance du suivi des ports</li>
+                                <li><strong>Gestion :</strong> Commandes simples et efficaces</li>
+                                <li><strong>Surveillance :</strong> Outils de monitoring intégrés</li>
+                                <li><strong>Maintenance :</strong> Facilité de mise à jour</li>
+                                <li><strong>Débogage :</strong> Accès aux logs et diagnostics</li>
                             </ul>
                         </div>
                     </section>
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <!-- Section 6.5 -->
+                    <!-- Section 7.5 -->
                     <section class="space-y-8">
-                        <h1 id="6.5" class="text-3xl font-bold text-gray-800 mb-6">6.5 Réseaux Overlay et Communication Multi-Hôtes</h1>
+                        <h1 id="7.5" class="text-3xl font-bold text-gray-800 mb-6">7.5 Environnements Multiples</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs Pédagogiques</h2>
                             <p class="text-green-700 mb-2">Dans cette section, vous allez apprendre :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Comprendre les réseaux overlay</li>
-                                <li>Configurer la communication multi-hôtes</li>
-                                <li>Gérer les services distribués</li>
-                                <li>Sécuriser les communications entre hôtes</li>
+                                <li>Gérer plusieurs environnements</li>
+                                <li>Utiliser les fichiers .env</li>
+                                <li>Surcharger les configurations</li>
+                                <li>Organiser les fichiers de configuration</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Création de Réseaux Overlay</h3>
+                                <h3 class="text-xl font-semibold mb-4">Structure des Fichiers</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Initialiser Swarm mode
-docker swarm init
+# docker-compose.yml (base)
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
 
-# Créer un réseau overlay
-docker network create --driver overlay \
-  --attachable \
-  mon-reseau-overlay</pre>
+# docker-compose.override.yml (dev)
+services:
+  web:
+    volumes:
+      - ./src:/app
+    environment:
+      - DEBUG=1
+
+# docker-compose.prod.yml
+services:
+  web:
+    restart: always
+    environment:
+      - DEBUG=0</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Utilisation avec les Services</h3>
+                                <h3 class="text-xl font-semibold mb-4">Variables d'Environnement</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Créer un service sur le réseau overlay
-docker service create \
-  --name mon-service \
-  --network mon-reseau-overlay \
-  nginx</pre>
-                                </div>
-                            </div>
+# .env
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=secret
 
-                            <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Sécurité et Encryption</h3>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li>Encryption des données en transit</li>
-                                    <li>Isolation des réseaux overlay</li>
-                                    <li>Contrôle d'accès aux services</li>
-                                    <li>Gestion des certificats TLS</li>
-                                </ul>
+# .env.prod
+DB_HOST=db.production
+DB_USER=${PROD_DB_USER}
+DB_PASS=${PROD_DB_PASS}
+
+# Utilisation
+docker compose --env-file .env.prod up -d</pre>
+                                </div>
                             </div>
                         </div>
 
@@ -528,87 +547,134 @@ docker service create \
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Overlay :</strong> Communication transparente multi-hôtes</li>
-                                <li><strong>Services :</strong> Déploiement distribué facilité</li>
-                                <li><strong>Sécurité :</strong> Communications chiffrées</li>
-                                <li><strong>Scalabilité :</strong> Architecture distribuée flexible</li>
+                                <li><strong>Configuration :</strong> Séparation des environnements</li>
+                                <li><strong>Variables :</strong> Gestion flexible des paramètres</li>
+                                <li><strong>Sécurité :</strong> Protection des données sensibles</li>
+                                <li><strong>Maintenance :</strong> Organisation claire des fichiers</li>
                             </ul>
                         </div>
                     </section>
 
                     <hr class="my-12 border-t border-gray-200">
 
-                    <!-- Section 6.6 -->
+                    <!-- Section 7.6 -->
                     <section class="space-y-8">
-                        <h1 id="6.6" class="text-3xl font-bold text-gray-800 mb-6">6.6 Travail Pratique : Configuration d'une Application Multi-Conteneurs</h1>
+                        <h1 id="7.6" class="text-3xl font-bold text-gray-800 mb-6">7.6 Travail Pratique : Application Multi-Services</h1>
                         
                         <!-- Objectifs -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
                             <h2 class="text-xl font-semibold text-green-800 mb-2">Objectifs du TP</h2>
                             <p class="text-green-700 mb-2">Dans ce travail pratique, vous allez :</p>
                             <ul class="list-disc list-inside text-green-600">
-                                <li>Créer une application web avec base de données</li>
-                                <li>Configurer les réseaux pour la communication</li>
-                                <li>Exposer les services nécessaires</li>
-                                <li>Tester et valider la configuration</li>
+                                <li>Créer une application complète avec plusieurs services</li>
+                                <li>Configurer les environnements de développement et production</li>
+                                <li>Gérer les données persistantes</li>
+                                <li>Mettre en place un système de monitoring</li>
                             </ul>
                         </div>
 
                         <!-- Contenu -->
                         <div class="space-y-6">
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Étape 1 : Préparation</h3>
+                                <h3 class="text-xl font-semibold mb-4">Structure du Projet</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Créer le réseau pour l'application
-docker network create app-network
-
-# Vérifier la création
-docker network ls</pre>
+project/
+  ├── docker-compose.yml
+  ├── docker-compose.override.yml
+  ├── docker-compose.prod.yml
+  ├── .env
+  ├── .env.prod
+  ├── web/
+  │   ├── Dockerfile
+  │   └── src/
+  ├── api/
+  │   ├── Dockerfile
+  │   └── src/
+  └── db/
+      └── init/</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Étape 2 : Configuration de la Base de Données</h3>
+                                <h3 class="text-xl font-semibold mb-4">Configuration Complète</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Lancer MySQL
-docker run -d \
-  --name db \
-  --network app-network \
-  -e MYSQL_ROOT_PASSWORD=secret \
-  -e MYSQL_DATABASE=app \
-  mysql:8.0</pre>
+version: '3.8'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - frontend
+  
+  api:
+    build: ./api
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - frontend
+      - backend
+    environment:
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+  
+  db:
+    image: postgres:13
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  monitoring:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - monitoring
+
+volumes:
+  db_data:
+  grafana_data:
+
+networks:
+  frontend:
+  backend:
+    internal: true
+  monitoring:</pre>
                                 </div>
                             </div>
 
                             <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Étape 3 : Configuration de l'Application Web</h3>
+                                <h3 class="text-xl font-semibold mb-4">Commandes de Déploiement</h3>
                                 <div class="bg-gray-800 text-white p-4 rounded">
                                     <pre class="font-mono text-sm">
-# Lancer l'application web
-docker run -d \
-  --name web \
-  --network app-network \
-  -p 8080:80 \
-  -e DB_HOST=db \
-  -e DB_PASSWORD=secret \
-  mon-app:latest</pre>
-                                </div>
-                            </div>
+# Développement
+docker compose up -d
 
-                            <div class="bg-white shadow rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-4">Étape 4 : Tests et Validation</h3>
-                                <div class="bg-gray-800 text-white p-4 rounded">
-                                    <pre class="font-mono text-sm">
-# Vérifier les conteneurs
-docker ps
+# Production
+docker compose -f docker-compose.yml \
+  -f docker-compose.prod.yml \
+  --env-file .env.prod \
+  up -d
 
-# Tester la connexion
-docker exec web ping db
-
-# Vérifier les logs
-docker logs web</pre>
+# Vérification
+docker compose ps
+docker compose logs -f</pre>
                                 </div>
                             </div>
                         </div>
@@ -617,10 +683,10 @@ docker logs web</pre>
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4">Points Clés du TP</h2>
                             <ul class="space-y-2 text-gray-600">
-                                <li><strong>Réseaux :</strong> Configuration correcte pour la communication</li>
-                                <li><strong>Services :</strong> Exposition appropriée des ports</li>
-                                <li><strong>Sécurité :</strong> Isolation des composants</li>
-                                <li><strong>Tests :</strong> Validation du fonctionnement</li>
+                                <li><strong>Architecture :</strong> Structure multi-services cohérente</li>
+                                <li><strong>Configuration :</strong> Gestion des environnements</li>
+                                <li><strong>Données :</strong> Persistance et sécurité</li>
+                                <li><strong>Monitoring :</strong> Surveillance de l'application</li>
                             </ul>
                         </div>
                     </section>
