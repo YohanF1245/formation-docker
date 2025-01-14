@@ -28,13 +28,13 @@
     <div class="flex min-h-screen">
         <!-- Sidebar -->
         <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
-            <div class="p-4 border-b border-blue-700">
-                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fab fa-docker"></i>
                     Formation Docker
                 </h1>
             </div>
-            <nav class="p-4">
+            <nav class="mt-4">
                 <ul class="space-y-2">
                     <li>
                         <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
@@ -97,7 +97,7 @@
                             <li><a href="module3.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
-                    <!-- Module 4 (actif) -->
+                    <!-- Module 4 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
                             <a href="module4.html" class="flex-grow">
@@ -109,14 +109,14 @@
                             </svg>
                         </div>
                         <ul id="module4-content" class="ml-4 space-y-1">
-                            <li><a href="#prerequis" class="block p-1 text-sm text-blue-100 hover:text-white">Prérequis Images Personnalisées</a></li>
-                            <li><a href="#pourquoi-images" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi des Images Personnalisées</a></li>
-                            <li><a href="#dockerfile" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction au Dockerfile</a></li>
-                            <li><a href="#construction" class="block p-1 text-sm text-blue-100 hover:text-white">Construction d'Images</a></li>
-                            <li><a href="#optimisation" class="block p-1 text-sm text-blue-100 hover:text-white">Optimisation des Images</a></li>
-                            <li><a href="#tags" class="block p-1 text-sm text-blue-100 hover:text-white">Gestion des Tags</a></li>
-                            <li><a href="#distribution" class="block p-1 text-sm text-blue-100 hover:text-white">Distribution d'Images</a></li>
-                            <li><a href="#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
+                            <li><a href="module4.html#prerequis" class="block p-1 text-sm text-blue-100 hover:text-white">Prérequis Images Personnalisées</a></li>
+                            <li><a href="module4.html#pourquoi-images" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi des Images Personnalisées</a></li>
+                            <li><a href="module4.html#dockerfile" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction au Dockerfile</a></li>
+                            <li><a href="module4.html#construction" class="block p-1 text-sm text-blue-100 hover:text-white">Construction d'Images</a></li>
+                            <li><a href="module4.html#optimisation" class="block p-1 text-sm text-blue-100 hover:text-white">Optimisation des Images</a></li>
+                            <li><a href="module4.html#tags" class="block p-1 text-sm text-blue-100 hover:text-white">Gestion des Tags</a></li>
+                            <li><a href="module4.html#distribution" class="block p-1 text-sm text-blue-100 hover:text-white">Distribution d'Images</a></li>
+                            <li><a href="module4.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
                     <!-- Module 5 -->
@@ -1371,6 +1371,7 @@ docker run -d -p 3000:3000 votre-username/mon-app:latest</pre>
     </div>
 
     <script>
+        // Menu mobile
         const menuButton = document.getElementById('menuButton');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
@@ -1378,25 +1379,29 @@ docker run -d -p 3000:3000 votre-username/mon-app:latest</pre>
         function toggleMenu() {
             sidebar.classList.toggle('open');
             if (sidebar.classList.contains('open')) {
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-                overlay.classList.add('opacity-50');
-                document.body.style.overflow = 'hidden';
+                overlay.classList.add('opacity-50', 'pointer-events-auto');
             } else {
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-                overlay.classList.remove('opacity-50');
-                document.body.style.overflow = '';
+                overlay.classList.remove('opacity-50', 'pointer-events-auto');
             }
         }
 
         menuButton.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
+        // Gestion des accordéons
+        document.querySelectorAll('[data-accordion-toggle]').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                const content = document.getElementById(toggle.getAttribute('data-accordion-toggle'));
+                content.classList.toggle('hidden');
+                toggle.querySelector('.accordion-icon').classList.toggle('rotate-90');
+            });
+        });
+
+        // Fermer le menu sur resize
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 1024) {
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-                overlay.classList.remove('opacity-50');
-                document.body.style.overflow = '';
                 sidebar.classList.remove('open');
+                overlay.classList.remove('opacity-50', 'pointer-events-auto');
             }
         });
     </script>

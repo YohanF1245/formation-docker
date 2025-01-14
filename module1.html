@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1 - Introduction à Docker</title>
+    <title>Module 1 - Introduction | Formation Docker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .sidebar-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-        @media (max-width: 768px) {
-            .sidebar-hidden {
+        @media (max-width: 1024px) {
+            #sidebar {
                 transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            #sidebar.open {
+                transform: translateX(0);
             }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <button id="mobile-menu-button" class="md:hidden fixed top-4 left-4 z-50 bg-blue-800 text-white p-2 rounded-md">
-        <i class="fas fa-bars"></i>
+<body class="bg-gray-100">
+    <!-- Bouton menu mobile -->
+    <button id="menuButton" class="lg:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded-lg shadow-lg hover:bg-blue-700">
+        <i class="fas fa-bars text-xl"></i>
     </button>
 
-    <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-30 hidden md:hidden"></div>
-
-    <div class="flex h-screen">
-        <aside id="sidebar" class="w-64 bg-blue-800 shadow-lg fixed h-full overflow-y-auto z-40 sidebar-transition sidebar-hidden md:sidebar-visible md:transform-none">
-            <div class="p-4 border-b border-blue-700">
-                <h1 class="text-xl font-bold text-white flex items-center gap-3">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-600 to-blue-800 z-40 overflow-y-auto lg:translate-x-0">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fab fa-docker"></i>
                     Formation Docker
                 </h1>
             </div>
-            <nav class="p-4">
+            <nav class="mt-4">
                 <ul class="space-y-2">
                     <li>
                         <a href="index.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
@@ -41,6 +42,7 @@
                             Accueil
                         </a>
                     </li>
+                    <!-- Module 1 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-white bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module1-content">
                             <a href="module1.html" class="flex-grow">
@@ -52,11 +54,12 @@
                             </svg>
                         </div>
                         <ul id="module1-content" class="ml-4 space-y-1">
-                            <li><a href="#comparaison" class="block p-1 text-sm text-blue-100 hover:text-white">Bare Metal vs VM vs Container</a></li>
-                            <li><a href="#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker</a></li>
-                            <li><a href="#pourquoi" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi Docker</a></li>
+                            <li><a href="module1.html#comparaison" class="block p-1 text-sm text-blue-100 hover:text-white">Bare Metal vs VM vs Container</a></li>
+                            <li><a href="module1.html#introduction" class="block p-1 text-sm text-blue-100 hover:text-white">Introduction à Docker</a></li>
+                            <li><a href="module1.html#pourquoi" class="block p-1 text-sm text-blue-100 hover:text-white">Pourquoi Docker</a></li>
                         </ul>
                     </li>
+                    <!-- Module 2 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module2-content">
                             <a href="module2.html" class="flex-grow">
@@ -73,6 +76,7 @@
                             <li><a href="module2.html#linux" class="block p-1 text-sm text-blue-100 hover:text-white">Installation sur Linux</a></li>
                         </ul>
                     </li>
+                    <!-- Module 3 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module3-content">
                             <a href="module3.html" class="flex-grow">
@@ -93,6 +97,7 @@
                             <li><a href="module3.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
+                    <!-- Module 4 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module4-content">
                             <a href="module4.html" class="flex-grow">
@@ -114,6 +119,7 @@
                             <li><a href="module4.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
+                    <!-- Module 5 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module5-content">
                             <a href="module5.html" class="flex-grow">
@@ -133,6 +139,7 @@
                             <li><a href="module5.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
+                    <!-- Module 6 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module6-content">
                             <a href="module6.html" class="flex-grow">
@@ -150,6 +157,7 @@
                             <li><a href="module6.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
+                    <!-- Module 7 -->
                     <li class="space-y-1">
                         <div class="flex items-center justify-between p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150 cursor-pointer" data-accordion-toggle="module7-content">
                             <a href="module7.html" class="flex-grow">
@@ -166,6 +174,7 @@
                             <li><a href="module7.html#tp" class="block p-1 text-sm text-blue-100 hover:text-white">Travail Pratique</a></li>
                         </ul>
                     </li>
+                    <!-- Cheatsheet -->
                     <li>
                         <a href="cheatsheet.html" class="block p-2 text-blue-100 hover:bg-blue-700 rounded transition-colors duration-150">
                             <i class="fas fa-list-alt mr-2"></i>
@@ -176,7 +185,11 @@
             </nav>
         </aside>
 
-        <main class="w-full md:ml-64 flex-1 p-4 md:p-8 overflow-y-auto">
+        <!-- Overlay pour mobile -->
+        <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none lg:hidden transition-opacity duration-300 z-30"></div>
+
+        <!-- Main content -->
+        <main class="w-full lg:ml-72 p-4 lg:p-8">
             <div class="mx-auto">
                 <div class="bg-white shadow-lg rounded-lg p-6 markdown-content">
                     <h1 id="comparaison" class="text-3xl font-bold text-gray-800 mb-6">Bare Metal vs VM vs Container</h1>
@@ -233,18 +246,39 @@
     </div>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // Menu mobile
+        const menuButton = document.getElementById('menuButton');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
-        function toggleMobileMenu() {
-            sidebar.classList.toggle('sidebar-hidden');
-            overlay.classList.toggle('hidden');
+        function toggleMenu() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.add('opacity-50', 'pointer-events-auto');
+            } else {
+                overlay.classList.remove('opacity-50', 'pointer-events-auto');
+            }
         }
 
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        overlay.addEventListener('click', toggleMobileMenu);
+        menuButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Gestion des accordéons
+        document.querySelectorAll('[data-accordion-toggle]').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                const content = document.getElementById(toggle.getAttribute('data-accordion-toggle'));
+                content.classList.toggle('hidden');
+                toggle.querySelector('.accordion-icon').classList.toggle('rotate-90');
+            });
+        });
+
+        // Fermer le menu sur resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('opacity-50', 'pointer-events-auto');
+            }
+        });
     </script>
-    <script src="./js/nav.js"></script>
 </body>
 </html> 
