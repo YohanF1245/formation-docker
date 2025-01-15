@@ -21,6 +21,7 @@
 | `docker stop <conteneur>` | Arrête un conteneur | `docker stop mon-nginx` |
 | `docker restart <conteneur>` | Redémarre un conteneur | `docker restart mon-nginx` |
 | `docker rm <conteneur>` | Supprime un conteneur | `docker rm mon-nginx` |
+| `docker system prune`| Nettoie les conteneurs inutilisés | `docker system prune`|
 
 ### Gestion et Surveillance
 | Commande | Description | Exemple |
